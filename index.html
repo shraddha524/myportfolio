@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shraddha's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="container nav-container">
+        <h1 class="logo">Shraddha</h1>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#internship">Internship</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section id="home" class="section home-section">
+    <div class="container home-grid animate-fade-in">
+      <div class="home-content">
+        <p class="greeting">Hello, It's Me</p>
+        <h2 class="name animate-slide-up">Shraddha</h2>
+        <p class="tagline animate-slide-up"> And I'm a <span class="highlight typed-text"
+            data-typed-items="Meta-certified Front-End Developer, Aspiring Full-Stack Developer, Web Solutions Architect"></span>|
+        </p>
+        <p class="description animate-slide-up"> Meta-certified Front-End Developer with strong skills in React,
+          Next.js, and JavaScript, and hands-on experience in Python/Django backend and cloud deployment (AWS, Docker).
+          Built multiple full-stack projects including an e-commerce SaaS, healthcare system, and safety mobile app.
+        </p>
+        <div class="social-links animate-fade-in"> <a href="https://github.com/shraddha524" target="_blank"><i
+              class="fab fa-github"></i></a> <a href="https://www.linkedin.com/in/shraddha8" target="_blank"><i
+              class="fab fa-linkedin"></i></a> <a href="mailto:shraddhamoily392@gmail.com"><i
+              class="fas fa-envelope"></i></a> </div> <a href="#about" class="btn more-about-me animate-fade-in">More
+          About Me</a>
+      </div>
+      <div class="profile-image-container animate-fade-in"> <img src="images/profile.jpg" alt="Shraddha Profile"
+          class="profile-photo" /> </div>
+    </div>
+  </section>
+  <section id="about" class="section about-section">
+    <div class="container about-grid">
+      <div class="profile-image-container animate-fade-in"> <img src="images/profile.jpg" alt="Shraddha Profile"
+          class="profile-photo" /> </div>
+      <div class="about-content animate-slide-up">
+        <h2 class="section-title">About Me</h2>
+        <h3 class="subsection-title">Why Choose Me?</h3>
+        <p> As a Meta-certified developer with a strong foundation in both frontend and backend technologies, I bring a
+          unique full-stack perspective to every project. My experience in building scalable solutions from an
+          e-commerce SaaS to a healthcare system demonstrates my ability to deliver user-focused and impactful products.
+        </p>
+        <p> I am passionate about creating clean, efficient, and well-documented code. I thrive in environments that
+          challenge me to learn new technologies and apply my skills to solve complex problems. With a focus on
+          delivering high-quality, scalable solutions, I am committed to making a tangible impact. </p> <a
+          href="Shraddha_resume.pdf" download class="btn download-cv animate-fade-in">Download CV</a>
+      </div>
+    </div>
+  </section>
+  <section id="education" class="section education-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Education</h2>
+      <div class="education-grid">
+        <div class="education-card animate-scale-up">
+          <div class="card-header"> <i class="fas fa-graduation-cap"></i> <span class="year">2023</span> </div>
+          <h3>Bachelor of Computer Applications (BCA)</h3>
+          <p class="institution">Alva's College, Moodbidri</p>
+          <div class="relevant-courses"> <span class="course-tag">Data Structures & Algorithms</span><span
+              class="course-tag">DBMS</span><span class="course-tag">Operating Systems</span> <span
+              class="course-tag">Web Technologies</span><span class="course-tag">Software Engineering</span> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="certifications" class="section certifications-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Certifications</h2>
+      <div class="certifications-grid">
+        <div class="certification-card animate-scale-up"> <i class="fas fa-award"></i> <span class="year">2025</span>
+          <h3>Meta Front-End Developer</h3>
+          <p class="authority">Professional Certificate - Coursera</p>
+        </div>
+        <div class="certification-card animate-scale-up"> <i class="fas fa-code"></i> <span class="year">2025</span>
+          <h3>Software Engineer Role</h3>
+          <p class="authority">Certification - HackerRank</p>
+        </div>
+        <div class="certification-card animate-scale-up"> <i class="fas fa-laptop-code"></i> <span
+            class="year">2025</span>
+          <h3>JavaScript Algorithms & Data Structures</h3>
+          <p class="authority">freeCodeCamp</p>
+        </div>
+        <div class="certification-card animate-scale-up"> <i class="fas fa-robot"></i> <span class="year">2025</span>
+          <h3>Machine Learning with Python</h3>
+          <p class="authority">freeCodeCamp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card animate-scale-up"> <img src="images/iam-safe.png" alt="I Am Safe App" />
+          <h3>I Am Safe (Women’s Safety App)</h3>
+          <p>Developed app for real-time GPS tracking & SOS alerts. Improved emergency response time by ~40%.</p> <a
+            href="https://github.com/shraddha524/iam-safe" target="_blank" class="project-link"> View on GitHub <i
+              class="fas fa-arrow-right"></i> </a>
+        </div>
+        <div class="project-card animate-scale-up"> <img src="images/medilink.png" alt="MediLink" />
+          <h3>MediLink (Patient Management System)</h3>
+          <p>Built secure system with role-based authentication. Integrated Twilio for appointment reminders & alerts.
+          </p> <a href="https://github.com/shraddha524/Medilink" target="_blank" class="project-link"> View on GitHub <i
+              class="fas fa-arrow-right"></i> </a>
+        </div>
+        <div class="project-card animate-scale-up"> <img src="images/shopsphere.png" alt="ShopSphere" />
+          <h3>ShopSphere (Multi-Vendor E-Commerce SaaS)</h3>
+          <p>Designed scalable microservice architecture. Integrated ImageKit CDN for optimized uploads, reducing load
+            time by 40%.</p> <a href="https://github.com/shraddha524/shopshere" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i> </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="internship" class="section internship-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Internship</h2>
+      <div class="internship-card animate-fade-in">
+        <h3>Python Programming Intern</h3>
+        <p class="company"><i class="fas fa-building"></i> YBI Foundation (Remote)</p>
+        <p class="duration"><i class="fas fa-calendar-alt"></i> Jul 2024</p>
+        <p class="description"> Automated workflows using Python scripts (file converters, data-cleaning). Debugged and
+          optimized modular code, improving execution speed by 20%. Applied data structures, loops, and error handling
+          in real-world applications. </p>
+        <div class="skills-gained"> <span>Skills Gained:</span> <span class="skill-tag">Python</span><span
+            class="skill-tag">Data-cleaning</span><span class="skill-tag">Error Handling</span><span
+            class="skill-tag">Scripting</span> </div>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Skills</h2>
+      <div class="professional-skills-container">
+        <h3 class="subsection-title">Professional Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fas fa-code"></i> <span>JavaScript</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="90"></div>
+            </div> <span class="percentage">90%</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fab fa-react"></i> <span>React/Next.js</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="85"></div>
+            </div> <span class="percentage">85%</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fab fa-python"></i> <span>Python/Django</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="80"></div>
+            </div> <span class="percentage">80%</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fab fa-aws"></i> <span>AWS/Docker</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="70"></div>
+            </div> <span class="percentage">70%</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fas fa-database"></i> <span>Databases (SQL/NoSQL)</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="75"></div>
+            </div> <span class="percentage">75%</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"> <i class="fas fa-laptop-code"></i> <span>HTML/CSS/TailwindCSS</span> </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="95"></div>
+            </div> <span class="percentage">95%</span>
+          </div>
+        </div>
+      </div>
+      <div class="soft-skills-container">
+        <h3 class="subsection-title">Soft Skills</h3>
+        <div class="soft-skills-grid">
+          <div class="soft-skill-card animate-scale-up">
+            <div class="skill-icon-container"> <i class="fas fa-lightbulb"></i>
+              <div class="skill-circle-progress" data-percent="90"> <svg viewBox="0 0 36 36" class="circle">
+                  <path class="circle-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="circle-fill"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="percent-text">90%</div>
+              </div>
+            </div>
+            <h4>Creativity</h4>
+            <p>Ability to think outside the box and generate innovative ideas</p>
+          </div>
+          <div class="soft-skill-card animate-scale-up">
+            <div class="skill-icon-container"> <i class="fas fa-comments"></i>
+              <div class="skill-circle-progress" data-percent="85"> <svg viewBox="0 0 36 36" class="circle">
+                  <path class="circle-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="circle-fill"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="percent-text">85%</div>
+              </div>
+            </div>
+            <h4>Communication</h4>
+            <p>Effectively conveying information and listening actively</p>
+          </div>
+          <div class="soft-skill-card animate-scale-up">
+            <div class="skill-icon-container"> <i class="fas fa-puzzle-piece"></i>
+              <div class="skill-circle-progress" data-percent="90"> <svg viewBox="0 0 36 36" class="circle">
+                  <path class="circle-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="circle-fill"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="percent-text">90%</div>
+              </div>
+            </div>
+            <h4>Problem Solving</h4>
+            <p>Analyzing complex issues and developing effective solutions</p>
+          </div>
+          <div class="soft-skill-card animate-scale-up">
+            <div class="skill-icon-container"> <i class="fas fa-users"></i>
+              <div class="skill-circle-progress" data-percent="80"> <svg viewBox="0 0 36 36" class="circle">
+                  <path class="circle-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="circle-fill"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="percent-text">80%</div>
+              </div>
+            </div>
+            <h4>Teamwork</h4>
+            <p>Collaborating effectively with others to achieve common goals</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="research" class="section research-roadmap-section">
+    <div class="container">
+      <h2 class="section-title">Research & Roadmaps</h2>
+      <p class="section-description" style="text-align: center; color: var(--text-grey); margin-bottom: 50px;">
+        Leveraging my BCA foundation, I am actively exploring high-impact fields where technology and data solve
+        complex, real-world problems. </p>
+      <div class="roadmap-grid">
+        <div class="roadmap-card animate-fade-in" style="animation-delay: 0.1s;">
+          <div class="card-header"> <i class="fas fa-dna icon"></i>
+            <h3>1. Computational Biology & Bioinformatics</h3>
+          </div>
+          <p class="field-focus">**Field Focus:** Genetics, disease modeling, and drug discovery.</p>
+          <div class="card-details">
+            <h4>Core Skills</h4> <span class="skill-tag">Python/R</span> <span class="skill-tag">Statistics</span> <span
+              class="skill-tag">Machine Learning</span> <span class="skill-tag">Database Management (SQL)</span>
+          </div>
+          <div class="research-project">
+            <h4>Possible Research Project</h4>
+            <p> **Disease Biomarker Prediction:** Use a simple ML classifier to analyze publicly available genomic or
+              proteomic datasets to identify potential **"biomarkers"** that predict the disease outcome. </p>
+          </div>
+          <p class="career-path">**Career Path:** Bioinformatician, Computational Biologist, Research Associate in
+            Pharma/Biotech.</p>
+        </div>
+        <div class="roadmap-card animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="card-header"> <i class="fas fa-chart-line icon"></i>
+            <h3>2. Quantitative Finance & Algorithmic Trading</h3>
+          </div>
+          <p class="field-focus">**Field Focus:** Market prediction, risk management, and high-frequency trading.</p>
+          <div class="card-details">
+            <h4>Core Skills</h4> <span class="skill-tag">C++/Python/R</span> <span class="skill-tag">Algorithms & Data
+              Structures</span> <span class="skill-tag">Time-Series Analysis</span> <span
+              class="skill-tag">Statistics</span>
+          </div>
+          <div class="research-project">
+            <h4>Possible Research Project</h4>
+            <p> **Sentiment-Driven Trading Strategy:** Develop an algorithm using **NLP** to scrape financial news,
+              extract market sentiment, and build a simple backtesting engine (in Python). </p>
+          </div>
+          <p class="career-path">**Career Path:** Quantitative Researcher, Algorithmic Trading Developer, Financial Data
+            Analyst.</p>
+        </div>
+        <div class="roadmap-card animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="card-header"> <i class="fas fa-users-cog icon"></i>
+            <h3>3. Computational Social Science (CSS)</h3>
+          </div>
+          <p class="field-focus">**Field Focus:** Analyzing social networks, tracking misinformation, and predicting
+            crowd behavior.</p>
+          <div class="card-details">
+            <h4>Core Skills</h4> <span class="skill-tag">Data Mining</span> <span class="skill-tag">NLP</span> <span
+              class="skill-tag">Network Analysis</span> <span class="skill-tag">Data Visualization</span>
+          </div>
+          <div class="research-project">
+            <h4>Possible Research Project</h4>
+            <p> **Misinformation Tracking:** Use web scraping/API to collect social posts, apply NLP to classify
+              misleading content, and analyze the network structure of users who share it. </p>
+          </div>
+          <p class="career-path">**Career Path:** Data Scientist in Policy, Social Media Analyst, UX Researcher.</p>
+        </div>
+        <div class="roadmap-card animate-fade-in" style="animation-delay: 0.4s;">
+          <div class="card-header"> <i class="fas fa-bullhorn icon"></i>
+            <h3>4. Digital Marketing & SEO Research</h3>
+          </div>
+          <p class="field-focus">**Field Focus:** SEO algorithms, conversion rate optimization, and advertising
+            efficacy.</p>
+          <div class="card-details">
+            <h4>Core Skills</h4> <span class="skill-tag">Web Technologies (HTML/CSS/JS)</span> <span
+              class="skill-tag">Web Scraping</span> <span class="skill-tag">A/B Testing</span> <span
+              class="skill-tag">Statistics</span>
+          </div>
+          <div class="research-project">
+            <h4>Possible Research Project</h4>
+            <p> **Automated SEO Analysis:** Build a Python script to audit competitor websites for technical SEO factors
+              (page speed, keyword density) and correlate them with search engine ranking. </p>
+          </div>
+          <p class="career-path">**Career Path:** SEO Analyst, Marketing Data Scientist, Growth Hacker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="interests" class="section interests-section">
+    <div class="container">
+      <h2 class="section-title animate-slide-up">Interests & Hobbies</h2>
+      <div class="interests-grid">
+        <div class="interest-card animate-scale-up">
+          <div class="card-icon"><i class="fas fa-book-open"></i></div>
+          <h4>Reading</h4>
+          <p>Exploring tech journals, research papers, and fiction to expand knowledge and creativity.</p>
+        </div>
+        <div class="interest-card animate-scale-up">
+          <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+          <h4>Graphic Design</h4>
+          <p>Creating visual content and UI mockups using digital design tools.</p>
+        </div>
+        <div class="interest-card animate-scale-up">
+          <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+          <h4>Tech Exploration</h4>
+          <p>Staying updated with emerging technologies, frameworks, and development methodologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section contact-section">
+    <div class="container contact-grid">
+      <div class="contact-left animate-slide-right">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p> I'm currently available for a new role. Whether you have a question or just want to connect, feel free to
+          reach out. I'm always eager to discuss new ideas and opportunities. </p>
+        <p class="contact-info-item"><i class="fas fa-envelope"></i> shraddhamoily392@gmail.com</p>
+        <p class="contact-info-item"><i class="fas fa-phone"></i> +91-9945185153</p>
+      </div>
+      <form class="contact-form animate-slide-left" action="https://formspree.io/f/xkgqqppj" method="POST"> <input
+          type="text" name="name" placeholder="Enter Your Name" required /> <input type="email" name="email"
+          placeholder="Enter Your Email" required /> <textarea name="message" placeholder="Enter Your Message"
+          required></textarea> <button type="submit" class="btn">Send Message</button> </form>
+    </div>
+  </section>
+  <footer>
+    <div class="container"> &copy; 2025 Shraddha. All rights reserved. </div>
+  </footer>
+  <div id="chatbot-container"> <button id="chatbot-toggle"><i class="fas fa-comment-dots"></i></button>
+    <div id="chatbot-box">
+      <div id="chatbot-header">
+        <h4>Shraddha's Assistant</h4> <button id="chatbot-close">&times;</button>
+      </div>
+      <div id="chatbot-messages"></div>
+      <form id="chatbot-form"> <input type="text" id="chatbot-input" placeholder="Ask me anything..." required />
+        <button type="submit"><i class="fas fa-paper-plane"></i></button> </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
