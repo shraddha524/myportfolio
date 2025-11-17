@@ -1,172 +1,218 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // --- 1. Typed Text Effect for Home Section ---
-    const typedTextElement = document.querySelector('.typed-text');
-    if (typedTextElement) {
-        const items = typedTextElement.getAttribute('data-typed-items').split(', ');
-        let itemIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+// =========================================
+// 1. Intersection Observer for Animations
+// =========================================
+const animateElements = document.querySelectorAll(
+    '.animate-fade-in, .animate-slide-up, .animate-slide-right, .animate-slide-left, .animate-scale-up'
+);
 
-        function type() {
-            const currentText = items[itemIndex];
-            
-            if (isDeleting) {
-                // Deleting phase
-                charIndex--;
-            } else {
-                // Typing phase
-                charIndex++;
-            }
+const observerOptions = {
+    root: null, // viewport
+    threshold: 0.1, // 10% of element visible
+    rootMargin: "0px"
+};
 
-            typedTextElement.textContent = currentText.substring(0, charIndex);
-
-            let typingSpeed = 100;
-
-            if (isDeleting) {
-                typingSpeed /= 2; // Faster deletion
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                // Done typing, wait a moment, then start deleting
-                typingSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                // Done deleting, move to next item
-                isDeleting = false;
-                itemIndex = (itemIndex + 1) % items.length;
-                typingSpeed = 500; // Pause before new word starts
-            }
-
-            setTimeout(type, typingSpeed);
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
         }
-        type();
+    });
+}, observerOptions);
+
+// FIX: Simplified the observer loop to ensure all animated elements (like the Internship card) are observed.
+animateElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+// =========================================
+// 2. Typing Effect for Home Section
+// =========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const typedTextElement = document.querySelector('.typed-text');
+    if (!typedTextElement) return;
+
+    const items = typedTextElement.getAttribute('data-typed-items').split(',').map(item => item.trim());
+    let itemIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100; // milliseconds
+    const deletingSpeed = 50; // milliseconds
+    const pauseBeforeDelete = 1500; // milliseconds
+    const pauseBeforeType = 500; // milliseconds
+
+    function type() {
+        const currentItem = items[itemIndex];
+
+        if (isDeleting) {
+            // Deleting phase
+            typedTextElement.textContent = currentItem.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            // Typing phase
+            typedTextElement.textContent = currentItem.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let speed = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (!isDeleting && charIndex === currentItem.length) {
+            // End of typing, start deleting after a pause
+            speed = pauseBeforeDelete;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // End of deleting, move to next item
+            isDeleting = false;
+            itemIndex = (itemIndex + 1) % items.length;
+            speed = pauseBeforeType;
+        }
+
+        setTimeout(type, speed);
     }
 
+    // Start the typing effect
+    setTimeout(type, 500);
+});
 
-    // --- 2. Scroll Animations (Intersection Observer) ---
-    const observerOptions = {
+// =========================================
+// 3. Progress Bar Animations (Skills)
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBars = document.querySelectorAll('.progress-fill');
+
+    const progressObserverOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
+        threshold: 0.5 // Trigger when 50% of the bar is visible
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const progressObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // For non-looping animations like skills bars, stop observing once visible
-                if (entry.target.id === 'skills') {
-                    animateSkills();
-                }
+                const percentage = entry.target.getAttribute('data-progress');
+                entry.target.style.width = percentage + '%';
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, progressObserverOptions);
 
-    // Apply observer to all sections
-    document.querySelectorAll('.section').forEach(section => {
-        observer.observe(section);
+    progressBars.forEach(bar => {
+        progressObserver.observe(bar);
     });
-    
-    // Also apply observer to specific animated elements that are not full sections
-    document.querySelectorAll('.animate-slide-up, .animate-slide-left, .animate-slide-right, .animate-fade-in, .animate-scale-up').forEach(element => {
-        // Only observe elements that are NOT already children of a .section (to avoid double-observing)
-        if (!element.closest('.section')) {
-             observer.observe(element);
-        }
-    });
+});
 
-    // --- 3. Skills Progress Animation ---
-    function animateSkills() {
-        // Professional Skills
-        document.querySelectorAll('.progress-fill').forEach(bar => {
-            const progress = bar.getAttribute('data-progress');
-            // Animate only if it's within the visible section (which is handled by the main observer)
-            bar.style.width = progress + '%';
+// =========================================
+// 4. Soft Skills Circle Progress Animation
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const skillContainers = document.querySelectorAll('.skill-circle-progress');
+
+    const circleObserverOptions = {
+        root: null,
+        threshold: 0.7 // Trigger when 70% of the circle is visible
+    };
+
+    const circleObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const percent = entry.target.getAttribute('data-percent');
+                const circleFill = entry.target.querySelector('.circle-fill');
+
+                // Circumference is 2 * pi * radius. For r=15.9155, C is approx 100.
+                const circumference = 100; 
+                const offset = circumference - (percent / 100) * circumference;
+                
+                circleFill.style.strokeDashoffset = offset;
+                observer.unobserve(entry.target);
+            }
         });
+    }, circleObserverOptions);
 
-        // Soft Skills (Circle Progress)
-        document.querySelectorAll('.skill-circle-progress').forEach(container => {
-            const percent = container.getAttribute('data-percent');
-            const circumference = 2 * Math.PI * 15.9155; // Calculated from R=15.9155
-            const dashoffset = circumference - (percent / 100) * circumference;
-            
-            const circleFill = container.querySelector('.circle-fill');
-            circleFill.style.strokeDasharray = `${circumference} ${circumference}`;
-            circleFill.style.strokeDashoffset = dashoffset;
-        });
-    }
+    skillContainers.forEach(container => {
+        circleObserver.observe(container);
+    });
+});
 
+// =========================================
+// 5. Chatbot Functionality
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('chatbot-toggle');
+    const closeButton = document.getElementById('chatbot-close');
+    const chatbox = document.getElementById('chatbot-box');
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messagesContainer = document.getElementById('chatbot-messages');
 
-    // --- 4. Simple Chatbot Logic ---
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotBox = document.getElementById('chatbot-box');
-    const chatbotForm = document.getElementById('chatbot-form');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotMessages = document.getElementById('chatbot-messages');
+    if (!toggleButton || !closeButton || !chatbox || !form || !messagesContainer) return;
 
-    // Show/Hide Chatbot
-    chatbotToggle.addEventListener('click', () => {
-        chatbotBox.classList.toggle('open');
-        // Initial bot message if opening for the first time
-        if (chatbotBox.classList.contains('open') && chatbotMessages.children.length === 0) {
-            setTimeout(() => {
-                appendMessage('bot', 'Hi! I\'m Shraddha\'s portfolio assistant. Ask me about her skills, projects, or background.');
-            }, 300);
-        }
+    // Toggle Chatbot visibility
+    toggleButton.addEventListener('click', () => {
+        const isOpen = chatbox.classList.toggle('open');
+        chatbox.setAttribute('aria-hidden', !isOpen);
+        toggleButton.setAttribute('aria-label', isOpen ? 'Close chat' : 'Open chat');
     });
 
-    chatbotClose.addEventListener('click', () => {
-        chatbotBox.classList.remove('open');
+    closeButton.addEventListener('click', () => {
+        chatbox.classList.remove('open');
+        chatbox.setAttribute('aria-hidden', true);
+        toggleButton.setAttribute('aria-label', 'Open chat');
     });
 
-    // Send Message
-    chatbotForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const userMessage = chatbotInput.value.trim();
-        if (userMessage === '') return;
-
-        appendMessage('user', userMessage);
-        chatbotInput.value = '';
+    // Helper function to display a message
+    function displayMessage(text, sender) {
+        const messageElement = document.createElement('p');
+        messageElement.classList.add('message', sender === 'bot' ? 'bot-message' : 'user-message');
         
-        // Get bot response after a brief delay
-        setTimeout(() => {
-            getBotResponse(userMessage);
-        }, 800);
-    });
+        // Simple markdown parsing for bold text
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        messageElement.innerHTML = text;
 
-    function appendMessage(sender, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.classList.add('message', `${sender}-message`);
-        msgDiv.textContent = text;
-        chatbotMessages.appendChild(msgDiv);
+        messagesContainer.appendChild(messageElement);
         // Scroll to the latest message
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
-    function getBotResponse(message) {
-        const lowerCaseMsg = message.toLowerCase();
-        let response = "I'm sorry, I can only answer questions related to Shraddha's portfolio (skills, projects, education). Can you try asking about her experience with React, Python, or the 'I Am Safe' project?";
-        
-        if (lowerCaseMsg.includes('hello') || lowerCaseMsg.includes('hi')) {
-            response = "Hello! I'm happy to help. What would you like to know about Shraddha's technical skills or projects?";
-        } else if (lowerCaseMsg.includes('skill') || lowerCaseMsg.includes('tech') || lowerCaseMsg.includes('language')) {
-            response = "Shraddha's core skills are **React/Next.js**, **JavaScript**, **Python/Django**, **AWS/Docker**, and **SQL/NoSQL**. She is Meta-certified in Front-End Development.";
-        } else if (lowerCaseMsg.includes('project') || lowerCaseMsg.includes('work')) {
-            response = "Shraddha has built three major projects: **ShopSphere** (Multi-Vendor E-Commerce SaaS), **MediLink** (Patient Management System), and **I Am Safe** (Women's Safety App).";
-        } else if (lowerCaseMsg.includes('react') || lowerCaseMsg.includes('frontend') || lowerCaseMsg.includes('meta')) {
-            response = "She is Meta-certified and proficient in React, Next.js, and modern CSS frameworks like Tailwind CSS, focusing on clean, responsive UI/UX.";
-        } else if (lowerCaseMsg.includes('python') || lowerCaseMsg.includes('django') || lowerCaseMsg.includes('backend')) {
-             response = "Shraddha has hands-on experience with Python and Django for building robust backends, including setting up APIs and managing databases for scalable applications.";
-        } else if (lowerCaseMsg.includes('safe') || lowerCaseMsg.includes('i am safe')) {
-            response = "**I Am Safe** is a Women's Safety App she developed that uses real-time GPS tracking and SOS alerts, reportedly improving emergency response time by ~40%.";
-        } else if (lowerCaseMsg.includes('education') || lowerCaseMsg.includes('college')) {
-            response = "Shraddha holds a Bachelor of Computer Applications (BCA) from Alva's College, with a focus on DSA, DBMS, and Web Technologies.";
-        } else if (lowerCaseMsg.includes('contact') || lowerCaseMsg.includes('email')) {
-             response = "You can contact Shraddha via email at **shraddhamoily392@gmail.com** or phone at **+91-9945185153**.";
-        }
+    // Initial greeting from the bot
+    displayMessage("Hi! I'm Shraddha's portfolio assistant. I can answer questions about her skills, projects, and experience. What would you like to know?", 'bot');
 
-        appendMessage('bot', response);
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userMessage = input.value.trim();
+
+        if (userMessage) {
+            displayMessage(userMessage, 'user');
+            input.value = ''; // Clear input
+
+            // Simulate bot response
+            setTimeout(() => {
+                const botResponse = getBotResponse(userMessage);
+                displayMessage(botResponse, 'bot');
+            }, 1000);
+        }
+    });
+
+    // Simple Bot Response Logic
+    function getBotResponse(message) {
+        const lowerCaseMessage = message.toLowerCase();
+
+        if (lowerCaseMessage.includes('skill') || lowerCaseMessage.includes('tech') || lowerCaseMessage.includes('framework')) {
+            return "Shraddha is strong in **Front-End (React, Next.js, JavaScript, HTML/CSS/TailwindCSS)** and has experience in **Back-End (Python/Django)** and **Cloud (AWS/Docker)**. She also excels at Problem Solving and Creativity.";
+        } else if (lowerCaseMessage.includes('project')) {
+            return "Shraddha's key projects include **ShopSphere** (E-Commerce SaaS), **MediLink** (Patient Management System), and **I Am Safe** (Women's Safety App). You can find them under the 'Projects' section.";
+        } else if (lowerCaseMessage.includes('contact')) {
+            return "You can reach Shraddha at **shraddhamoily392@gmail.com** or call her at **+91-9945185153**.";
+        } else if (lowerCaseMessage.includes('education') || lowerCaseMessage.includes('college')) {
+            return "Shraddha holds a **Bachelor of Computer Applications (BCA)** from Alva's College, Moodbidri (2023).";
+        } else if (lowerCaseMessage.includes('internship') || lowerCaseMessage.includes('experience')) {
+            return "She completed an internship as a **Python Programming Intern** at YBI Foundation, automating workflows and optimizing code.";
+        } else if (lowerCaseMessage.includes('certif')) {
+            return "Shraddha is **Meta Front-End Developer Certified** and holds certifications in **CSPE, JavaScript Algorithms, and Machine Learning with Python**.";
+        } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+            return "Hello there! How can I assist you with Shraddha's portfolio today?";
+        } else {
+            return "I'm sorry, I can only provide information about Shraddha's portfolio (Skills, Projects, Education, Contact). Can you rephrase your question?";
+        }
     }
 });
