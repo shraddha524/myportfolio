@@ -20,7 +20,7 @@ const observer = new IntersectionObserver((entries, observer) => {
     });
 }, observerOptions);
 
-// FIX: Simplified the observer loop to ensure all animated elements (like the Internship card) are observed.
+// FIX APPLIED: Simplified the observer loop to observe all animated elements
 animateElements.forEach(element => {
     observer.observe(element);
 });
