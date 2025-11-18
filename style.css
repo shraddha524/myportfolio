@@ -2,16 +2,17 @@
 /* ========= 1. Variables & Base CSS ========= */
 /* ========================================= */
 :root {
-    --primary-color: #bb86fc; /* Bright Purple/Blue for highlights */
-    --secondary-color: #03dac6; /* Accent Cyan */
-    --background-color: #121212; /* Deep Dark Background */
-    --card-background: #1e1e1e; /* Slightly Lighter Card Background */
-    --text-color: #e0e0e0; /* Light Gray for main text */
-    --light-text: #8d8d8d; /* Gray for descriptions */
-    --highlight-color: var(--secondary-color);
-    --border-color: #333333;
-    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.6);
+    /* NEW PROFESSIONAL COLOR PALETTE: Deep Navy/Slate with Coral Accent */
+    --primary-color: #e94560; /* Vibrant Coral/Rose for highlights and main actions */
+    --secondary-color: #0f3460; /* Dark Steel Blue for subtle accents/borders */
+    --background-color: #1a1a2e; /* Deep Navy/Slate Background */
+    --card-background: #16213e; /* Darker Navy Card Background */
+    --text-color: #f0f0f0; /* Near White for main text */
+    --light-text: #a0a0a0; /* Light Gray for descriptions */
+    --highlight-color: var(--primary-color);
+    --border-color: #3f5280; /* A middle ground color for borders */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.7);
     --transition-speed: 0.3s;
 }
 
@@ -42,7 +43,12 @@ a:hover { color: var(--highlight-color) }
     box-shadow: var(--shadow-light);
     transition: background var(--transition-speed), transform .2s, box-shadow var(--transition-speed);
 }
-.btn:hover { background: var(--secondary-color); color: var(--background-color); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(3, 218, 198, 0.3); }
+.btn:hover { 
+    background: #ff6a80; /* Slightly lighter coral for hover */
+    color: var(--background-color); 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(233, 69, 96, 0.3); 
+}
 
 /* Sections & Titles */
 .section { padding: 100px 0; min-height: 100vh; position: relative; }
@@ -93,6 +99,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     width: 350px; height: 350px; margin: 0 auto; 
     border-radius: 50%; 
     overflow: hidden;
+    /* Updated gradient to new colors */
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 10px;
 }
@@ -125,6 +132,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     padding: 30px;
     border-radius: 10px;
     box-shadow: var(--shadow-light);
+    /* Subtle accent border */
     border-left: 5px solid var(--secondary-color);
     max-width: 600px;
     width: 100%;
@@ -134,11 +142,12 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 .education-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 .education-card h3 { color: var(--primary-color); font-size: 1.4rem; margin-bottom: 5px; }
 .education-card .institution { color: var(--light-text); margin-bottom: 15px; font-style: italic; }
-.card-header { display: flex; align-items: center; margin-bottom: 15px; color: var(--secondary-color); font-size: 1.1rem; font-weight: 500; }
+.card-header { display: flex; align-items: center; margin-bottom: 15px; color: var(--primary-color); /* Used primary for icons/year */ font-size: 1.1rem; font-weight: 500; }
 .card-header i { margin-right: 10px; font-size: 1.2rem; }
 .card-header .year { font-weight: bold; }
 .relevant-courses { margin-top: 15px; }
-.course-tag { display: inline-block; background: rgba(3, 218, 198, 0.2); color: var(--secondary-color); padding: 5px 10px; border-radius: 3px; font-size: 0.85rem; margin-right: 8px; margin-bottom: 8px; }
+/* Updated course tag color */
+.course-tag { display: inline-block; background: rgba(233, 69, 96, 0.2); color: var(--primary-color); padding: 5px 10px; border-radius: 3px; font-size: 0.85rem; margin-right: 8px; margin-bottom: 8px; }
 
 
 /* ========================================= */
@@ -158,10 +167,9 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 .certification-card:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 0 15px var(--primary-color); 
-    background: #282828; 
+    background: #1e2a4f; /* Slightly lighter card background on hover */
 }
 
-/* FIX APPLIED: Updated styles for larger, clearer certificate images */
 .cert-image-container {
     position: relative;
     width: 100%; 
@@ -171,7 +179,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     justify-content: center;
     align-items: center;
     border-radius: 5px; 
-    background: #121212; 
+    background: var(--background-color); 
     border: 1px solid var(--border-color);
     overflow: hidden;
     padding: 10px; 
@@ -179,7 +187,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 .cert-image {
     width: 100%; 
     height: 100%;
-    object-fit: contain; /* Ensures the whole image is visible without cropping */
+    object-fit: contain;
     border-radius: 0;
     filter: none; 
 }
@@ -196,9 +204,6 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     font-weight: bold;
     z-index: 10;
 }
-/* End of updated Certifications CSS */
-
-
 .certification-card h3 { color: var(--primary-color); font-size: 1.3rem; margin-bottom: 5px; }
 .certification-card .authority { color: var(--light-text); font-size: 0.9rem; }
 
@@ -215,11 +220,12 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-.project-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--secondary-color); }
-.project-card h3 { color: var(--primary-color); padding: 15px 20px 5px; font-size: 1.4rem; }
+/* Subtle project separator bar */
+.project-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--primary-color); } 
+.project-card h3 { color: var(--text-color); padding: 15px 20px 5px; font-size: 1.4rem; }
 .project-card p { color: var(--light-text); padding: 0 20px 15px; font-size: 0.95rem; }
-.project-card .project-link { display: block; padding: 10px 20px 20px; color: var(--secondary-color); font-weight: 500; font-size: 0.9rem; }
-.project-card .project-link:hover { color: var(--primary-color); }
+.project-card .project-link { display: block; padding: 10px 20px 20px; color: var(--primary-color); font-weight: 500; font-size: 0.9rem; }
+.project-card .project-link:hover { color: #ff6a80; } /* Lighter coral on hover */
 .project-card .project-link i { margin-left: 5px; transition: margin-left .2s; }
 .project-card .project-link:hover i { margin-left: 10px; }
 
@@ -238,7 +244,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 .internship-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-.internship-card h3 { color: var(--secondary-color); font-size: 1.5rem; margin-bottom: 5px; }
+.internship-card h3 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 5px; }
 .internship-card .company, .internship-card .duration { 
     color: var(--light-text); 
     font-size: 0.95rem; 
@@ -249,9 +255,10 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 .internship-card .company i, .internship-card .duration i { margin-right: 8px; color: var(--primary-color); }
 .internship-card .description { margin: 15px 0; color: var(--text-color); }
 .internship-card .skills-gained span:first-child { color: var(--primary-color); font-weight: 600; margin-right: 10px; }
+/* Updated skill tag color */
 .skill-tag { 
     display: inline-block; 
-    background: rgba(187, 134, 252, 0.2); 
+    background: rgba(233, 69, 96, 0.2); 
     color: var(--primary-color); 
     padding: 4px 10px; 
     border-radius: 15px; 
@@ -279,10 +286,10 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     box-shadow: var(--shadow-light);
     transition: box-shadow var(--transition-speed);
 }
-.skill-item:hover { box-shadow: 0 0 10px var(--secondary-color); }
+.skill-item:hover { box-shadow: 0 0 10px var(--primary-color); }
 
 .skill-info { flex-grow: 1; display: flex; align-items: center; }
-.skill-info i { font-size: 1.3rem; color: var(--secondary-color); margin-right: 15px; }
+.skill-info i { font-size: 1.3rem; color: var(--primary-color); margin-right: 15px; }
 .skill-info span { font-weight: 500; color: var(--text-color); }
 
 .progress-bar { 
@@ -292,9 +299,10 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     border-radius: 4px; 
     margin: 0 15px;
 }
+/* Updated gradient */
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 4px;
     width: 0%; /* Start width for animation */
     transition: width 1.5s ease-out;
@@ -316,7 +324,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     transition: box-shadow var(--transition-speed);
 }
 .soft-skill-card:hover { box-shadow: 0 0 15px var(--primary-color); }
-.soft-skill-card h4 { color: var(--secondary-color); margin-top: 15px; margin-bottom: 10px; font-size: 1.2rem; }
+.soft-skill-card h4 { color: var(--primary-color); margin-top: 15px; margin-bottom: 10px; font-size: 1.2rem; }
 .soft-skill-card p { font-size: 0.9rem; color: var(--light-text); }
 
 .skill-icon-container { 
@@ -325,7 +333,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 }
 .skill-icon-container i { 
     font-size: 2rem; 
-    color: var(--primary-color); 
+    color: var(--text-color); /* Icon inside circle is text color */
     position: absolute; 
     top: 50%; 
     left: 50%; 
@@ -383,7 +391,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 }
 .interest-card:hover { 
     transform: translateY(-5px); 
-    box-shadow: 0 0 15px var(--secondary-color);
+    box-shadow: 0 0 15px var(--primary-color);
 }
 .card-icon { 
     font-size: 3rem; 
@@ -407,7 +415,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
     display: flex;
     align-items: center;
 }
-.contact-info-item i { margin-right: 10px; color: var(--secondary-color); }
+.contact-info-item i { margin-right: 10px; color: var(--primary-color); }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
@@ -422,7 +430,7 @@ header { background: var(--card-background); box-shadow: var(--shadow-light); po
 }
 .contact-form input:focus, .contact-form textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.5); /* Coral glow */
     outline: none;
 }
 .contact-form textarea { resize: vertical; min-height: 150px; }
@@ -441,7 +449,7 @@ footer { text-align: center; padding: 20px 0; background: var(--card-background)
 #chatbot-widget {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 20px; /* CORRECT: Right side bottom */
     z-index: 1000;
 }
 .chatbot-toggle {
@@ -457,7 +465,7 @@ footer { text-align: center; padding: 20px 0; background: var(--card-background)
     transition: transform 0.2s, background 0.3s;
 }
 .chatbot-toggle:hover {
-    background: var(--secondary-color);
+    background: #ff6a80;
     transform: scale(1.05);
 }
 
@@ -471,7 +479,7 @@ footer { text-align: center; padding: 20px 0; background: var(--card-background)
     flex-direction: column;
     position: absolute;
     bottom: 70px;
-    right: 0;
+    right: 0; 
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -529,7 +537,7 @@ footer { text-align: center; padding: 20px 0; background: var(--card-background)
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--secondary-color);
+    background: var(--primary-color); /* Used primary for send button */
     color: var(--background-color);
     border: none;
     cursor: pointer;
@@ -555,8 +563,8 @@ footer { text-align: center; padding: 20px 0; background: var(--card-background)
     border-bottom-left-radius: 2px;
 }
 .user-message {
-    background: var(--secondary-color);
-    color: var(--background-color);
+    background: var(--secondary-color); /* Used secondary for user message */
+    color: var(--text-color); /* Used text color for user message to contrast with dark secondary */
     align-self: flex-end;
     margin-left: auto;
     border-bottom-right-radius: 2px;

@@ -31,12 +31,12 @@
 
     <section id="home" class="section home-section">
         <div class="container home-grid"> 
-            <div class="home-content">
+            <div class="home-content animate-slide-right">
                 <p class="greeting">Hello, It's Me</p>
                 <h2 class="name animate-slide-up">Shraddha</h2>
                 <p class="tagline animate-slide-up">
                     And I'm a <span class="highlight typed-text"
-                        data-typed-items="Meta-certified Front-End Developer, Aspiring Full-Stack Developer, Web Solutions Architect"></span> |
+                        data-typed-items="Meta-certified Front-End Developer, Aspiring Full-Stack Developer, Web Solutions Architect"></span>
                 </p>
                 <p class="description animate-slide-up">
                     Meta-certified Front-End Developer with strong skills in React, Next.js, and JavaScript, and hands-on experience
@@ -51,9 +51,9 @@
                 <a href="#about" class="btn more-about-me animate-fade-in">More About Me</a>
             </div>
 
-            <div class="profile-image-container animate-fade-in">
+            <div class="profile-image-container animate-slide-left">
                 <img src="./Images/profile.jpg" alt="Shraddha Profile" class="profile-photo"
-                    onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22360%22><rect width=%22360%22 height=%22360%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2220%22 font-family=%22Arial%22>Profile image not found</text></svg>';">
+                    onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22360%22><rect width=%22360%22 height=%22360%22 fill=%22%23121212%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2220%22 font-family=%22Arial%22>Profile image not found</text></svg>';">
             </div>
         </div>
     </section>
@@ -62,7 +62,7 @@
         <div class="container about-grid">
             <div class="profile-image-container animate-fade-in">
                 <img src="./Images/profile.jpg" alt="Shraddha Profile" class="profile-photo"
-                    onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22360%22><rect width=%22360%22 height=%22360%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2220%22>Profile image not found</text></svg>';">
+                    onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22360%22><rect width=%22360%22 height=%22360%22 fill=%22%23121212%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2220%22>Profile image not found</text></svg>';">
             </div>
             <div class="about-content animate-slide-up">
                 <h2 class="section-title">About Me</h2>
@@ -110,42 +110,67 @@
                 
                 <div class="certification-card animate-scale-up">
                     <div class="cert-image-container">
-                        <img src="./Images/meta_cert.png" alt="Meta Front-End Developer Certificate" class="cert-image"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2210%22>Cert Image</text></svg>';">
+                        <img src="./Images/meta_cert.png" alt="Meta Certificate" class="cert-image"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect width=%22300%22 height=%22180%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2216%22>Meta Certificate</text></svg>';">
                         <span class="year">2025</span>
                     </div>
                     <h3>Meta Front-End Developer</h3>
                     <p class="authority">Professional Certificate - Coursera</p>
+                    <a href="./Certificates/meta_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                        <i class="fas fa-download"></i> Download Certificate
+                    </a>
                 </div>
                 
                 <div class="certification-card animate-scale-up">
                     <div class="cert-image-container">
-                        <img src="./Images/cspe_cert.png" alt="Certified Software Process Engineer Certificate" class="cert-image"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2210%22>Cert Image</text></svg>';">
+                        <img src="./Images/cspe_cert.png" alt="CSPE Certificate" class="cert-image"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect width=%22300%22 height=%22180%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2216%22>CSPE Certificate</text></svg>';">
                         <span class="year">2025</span>
                     </div>
                     <h3>Certified Software Process Engineer (CSPE)</h3>
                     <p class="authority">Certification - HackerRank</p>
+                    <a href="./Certificates/cspe_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                        <i class="fas fa-download"></i> Download Certificate
+                    </a>
                 </div>
                 
                 <div class="certification-card animate-scale-up">
                     <div class="cert-image-container">
-                        <img src="./Images/javascript_cert.png" alt="JavaScript Algorithms & Data Structures Certificate" class="cert-image"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2210%22>Cert Image</text></svg>';">
+                        <img src="./Images/javascript_cert.png" alt="JavaScript Certificate" class="cert-image"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect width=%22300%22 height=%22180%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2216%22>JavaScript Certificate</text></svg>';">
                         <span class="year">2025</span>
                     </div>
                     <h3>JavaScript Algorithms & Data Structures</h3>
                     <p class="authority">freeCodeCamp</p>
+                    <a href="./Certificates/javascript_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                        <i class="fas fa-download"></i> Download Certificate
+                    </a>
                 </div>
                 
                 <div class="certification-card animate-scale-up">
                     <div class="cert-image-container">
-                        <img src="./Images/python_ml_cert.png" alt="Machine Learning with Python Certificate" class="cert-image"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2210%22>Cert Image</text></svg>';">
+                        <img src="./Images/python_ml_cert.png" alt="Python ML Certificate" class="cert-image"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect width=%22300%22 height=%22180%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2216%22>Python ML Certificate</text></svg>';">
                         <span class="year">2025</span>
                     </div>
                     <h3>Machine Learning with Python</h3>
                     <p class="authority">freeCodeCamp</p>
+                    <a href="./Certificates/python_ml_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                        <i class="fas fa-download"></i> Download Certificate
+                    </a>
+                </div>
+                
+                <div class="certification-card animate-scale-up">
+                    <div class="cert-image-container">
+                        <img src="./Images/career_essentials_cert.png" alt="Career Essentials Certificate" class="cert-image"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect width=%22300%22 height=%22180%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2216%22>Career Essentials Certificate</text></svg>';">
+                        <span class="year">2024</span>
+                    </div>
+                    <h3>Career Essentials in Software Development</h3>
+                    <p class="authority">Microsoft and LinkedIn</p>
+                    <a href="./Certificates/career_essentials_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                        <i class="fas fa-download"></i> Download Certificate
+                    </a>
                 </div>
 
             </div>
@@ -156,9 +181,10 @@
         <div class="container">
             <h2 class="section-title animate-slide-up">Projects</h2>
             <div class="projects-grid">
+                
                 <div class="project-card animate-scale-up">
                     <img src="./Images/iam-safe.png" alt="I Am Safe App"
-                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2220%22>Project image not found</text></svg>';">
+                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2220%22>Project image not found</text></svg>';">
                     <h3>I Am Safe (Women’s Safety App)</h3>
                     <p>Developed app for real-time GPS tracking & SOS alerts. Improved emergency response time by ~40%.</p>
                     <a href="https://github.com/shraddha524/womensafe" target="_blank" class="project-link"> View on GitHub <i class="fas fa-arrow-right"></i> </a>
@@ -166,7 +192,7 @@
 
                 <div class="project-card animate-scale-up">
                     <img src="./Images/medilink.png" alt="MediLink"
-                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2220%22>Project image not found</text></svg>';">
+                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2220%22>Project image not found</text></svg>';">
                     <h3>MediLink (Patient Management System)</h3>
                     <p>Built secure system with role-based authentication. Integrated Twilio for appointment reminders & alerts.</p>
                     <a href="https://github.com/shraddha524/Medilink" target="_blank" class="project-link"> View on GitHub <i class="fas fa-arrow-right"></i> </a>
@@ -174,7 +200,7 @@
 
                 <div class="project-card animate-scale-up">
                     <img src="./Images/shopsphere.png" alt="ShopSphere"
-                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%23eef0f4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2370778a%22 font-size=%2220%22>Project image not found</text></svg>';">
+                        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22200%22><rect width=%22600%22 height=%22200%22 fill=%22%231e1e1e%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23e0e0e0%22 font-size=%2220%22>Project image not found</text></svg>';">
                     <h3>ShopSphere (Multi-Vendor E-Commerce SaaS)</h3>
                     <p>Designed scalable microservice architecture. Integrated ImageKit CDN for optimized uploads, reducing load time by 40%.</p>
                     <a href="https://github.com/shraddha524/eshop" target="_blank" class="project-link"> View on GitHub <i class="fas fa-arrow-right"></i> </a>
@@ -199,7 +225,10 @@
                     <span class="skill-tag">Error Handling</span>
                     <span class="skill-tag">Scripting</span>
                 </div>
-            </div>
+                <a href="./Certificates/ybi_internship_cert.pdf" download class="btn cert-download-btn animate-fade-in">
+                    <i class="fas fa-download"></i> Download Certificate
+                </a>
+                </div>
             
         </div>
     </section>
@@ -360,7 +389,7 @@
     </section>
 
     <footer>
-        <div class="container"> &copy; 2025 Shraddha. All rights reserved. </div>
+        <div class="container"> &copy; 2024 Shraddha. All rights reserved. </div>
     </footer>
 
     <div id="chatbot-widget" aria-hidden="true">
