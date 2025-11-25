@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shraddha - Full Stack Developer Portfolio</title>
+    
+    <link href="./style.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Defines the color palette for the Cyberpunk/Neon Dark Aesthetic
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0a0a2a', // Deep blue/purple background
+                        'card-dark': '#151535',    // Darker card background
+                        'accent-indigo': '#a855f7', // Primary accent (Bright Purple)
+                        'accent-purple': '#c084fc', // Secondary accent (Lighter Purple)
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-primary-dark dark:bg-primary-dark transition-colors duration-500 text-gray-100 dark:text-gray-100">
+
+    <header id="header" class="fixed top-0 w-full z-50 bg-primary-dark/95 backdrop-blur-sm shadow-lg border-b border-indigo-900/50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#about" class="text-2xl font-bold text-accent-indigo">SHRADDHA</a>
+            
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#about" class="hover:text-accent-purple transition">About</a>
+                <a href="#skills" class="hover:text-accent-purple transition">Skills</a>
+                <a href="#experience" class="hover:text-accent-purple transition">Experience</a>
+                <a href="#projects" class="hover:text-accent-purple transition">Projects</a>
+                <a href="#articles" class="hover:text-accent-purple transition">Articles</a>
+                <a href="#education" class="hover:text-accent-purple transition">Education</a>
+                <a href="#certifications" class="hover:text-accent-purple transition">Certifications</a>
+                <a href="#contact" class="hover:text-accent-purple transition">Contact</a>
+            </div>
+            
+            <button id="theme-toggle" aria-label="Toggle dark mode" 
+                class="p-2 rounded-full text-gray-300 hover:bg-card-dark transition">
+                <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        
+        <section id="about" class="min-h-[80vh] flex items-center bg-primary-dark">
+            <div class="container mx-auto px-6 py-16 lg:flex lg:items-center">
+                <div class="w-full lg:w-3/5">
+                    <p data-aos="fade-right" class="text-xl font-semibold text-accent-purple mb-2">Hi, I'm</p>
+                    <h1 data-aos="fade-right" data-aos-delay="100" class="text-6xl md:text-7xl font-extrabold mb-4 leading-tight text-white">
+                        Shraddha
+                    </h1>
+                    <p data-aos="fade-right" data-aos-delay="200" class="text-3xl font-light text-gray-400 mb-6">
+                        I am a <span class="font-bold text-accent-indigo">Full Stack Developer</span>
+                    </p>
+                    <p data-aos="fade-right" data-aos-delay="300" class="text-lg text-gray-300 max-w-xl mb-8">
+                        Full Stack Developer experienced in building production-ready web apps using **React, Next.js, Node.js, Express, Django, PostgreSQL, MongoDB, Redis, and cloud tools**. Delivered 6+ real-world projects. Strong in frontend architecture, backend APIs, authentication, dashboards, database design, and cloud integration.
+                    </p>
+                    
+                    <div data-aos="fade-up" data-aos-delay="400" class="flex items-center space-x-6">
+                        
+                        <a href="shraddha_resume.pdf" download 
+                            class="inline-block px-8 py-3 bg-gradient-to-r from-accent-indigo to-accent-purple text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105">
+                            DOWNLOAD CV
+                        </a>
+
+                        <a href="https://github.com/shraddha524" target="_blank" aria-label="GitHub Profile"
+                            class="text-accent-purple hover:text-accent-indigo transition duration-300 transform hover:scale-125">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.026c-5.518 0-9.974 4.456-9.974 9.974 0 4.406 2.857 8.145 6.828 9.467.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.704-2.782.604-3.37-1.34-3.37-1.34-.454-1.152-1.107-1.46-1.107-1.46-.905-.615.068-.603.068-.603 1.002.07 1.53.948 1.53.948.887 1.528 2.327 1.085 2.898.831.09-.645.348-1.085.632-1.334-2.214-.251-4.542-1.107-4.542-4.908 0-1.083.388-1.97.94-2.668-.095-.251-.408-1.262.091-2.633 0 0 .77-.267 2.515.94a8.68 8.68 0 014.507 0c1.745-1.207 2.515-.94 2.515-.94.498 1.371.185 2.382.09 2.633.553.698.94 1.585.94 2.668 0 3.809-2.33 4.654-4.55 4.90.358.309.678.924.678 1.864 0 1.341-.012 2.423-.012 2.75 0 .269.179.578.686.483C19.117 20.155 22 16.416 22 12.001 22 6.483 17.544 2.026 12 2.026z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/shraddha-fullstack" target="_blank" aria-label="LinkedIn Profile"
+                            class="text-accent-purple hover:text-accent-indigo transition duration-300 transform hover:scale-125">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4V9zM6 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/5 flex justify-center mt-12 lg:mt-0" data-aos="fade-left">
+                    <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-accent-indigo/20 p-2 shadow-2xl flex items-center justify-center border-4 border-accent-indigo/50 overflow-hidden">
+                        <img 
+                            src="./assets/profile.jpg" 
+                            alt="Shraddha Profile Photo" 
+                            class="w-full h-full object-cover rounded-full"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6">
+                <h2 data-aos="fade-up" class="section-title">TECHNICAL SKILLS</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg text-gray-400 mb-12">
+                    Expertise across the full stack, from modern frontend frameworks to robust databases.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div data-aos="zoom-in" class="skill-category-card">
+                        <h3 class="skill-category-title">Frontend & UI</h3>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/react.svg" alt="React.js Logo">
+                                </span>
+                                <span class="skill-name">React.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/nextjs.svg" alt="Next.js Logo">
+                                </span>
+                                <span class="skill-name">Next.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/tailwindcss.svg" alt="TailwindCSS Logo">
+                                </span>
+                                <span class="skill-name">TailwindCSS</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/javascript.svg" alt="JavaScript Logo">
+                                </span>
+                                <span class="skill-name">JavaScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/typescript.svg" alt="TypeScript Logo">
+                                </span>
+                                <span class="skill-name">TypeScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/shadcn.svg" alt="ShadCN Logo">
+                                </span>
+                                <span class="skill-name">ShadCN</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="zoom-in" data-aos-delay="100" class="skill-category-card">
+                        <h3 class="skill-category-title">Backend & APIs</h3>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/nodejs.svg" alt="Node.js Logo">
+                                </span>
+                                <span class="skill-name">Node.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/expressjs.svg" alt="Express.js Logo">
+                                </span>
+                                <span class="skill-name">Express.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/djangorest.svg" alt="Django REST Logo">
+                                </span>
+                                <span class="skill-name">Django REST</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/python.svg" alt="Python Logo">
+                                </span>
+                                <span class="skill-name">Python</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/java.svg" alt="Java Logo">
+                                </span>
+                                <span class="skill-name">Java (Basic)</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/sessionsauth.svg" alt="Sessions/Auth Icon">
+                                </span>
+                                <span class="skill-name">Sessions/Auth</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="zoom-in" data-aos-delay="200" class="skill-category-card">
+                        <h3 class="skill-category-title">Databases & Caching</h3>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/postgresql.svg" alt="PostgreSQL Logo">
+                                </span>
+                                <span class="skill-name">PostgreSQL</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/mongodb.svg" alt="MongoDB Logo">
+                                </span>
+                                <span class="skill-name">MongoDB</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/mysql.svg" alt="MySQL Logo">
+                                </span>
+                                <span class="skill-name">MySQL</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/redis.svg" alt="Redis Logo">
+                                </span>
+                                <span class="skill-name">Redis</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/neondb.svg" alt="NeonDB Logo">
+                                </span>
+                                <span class="skill-name">NeonDB</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/sqlite.svg" alt="SQLite Logo">
+                                </span>
+                                <span class="skill-name">SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="zoom-in" data-aos-delay="300" class="skill-category-card">
+                        <h3 class="skill-category-title">Cloud & Tools</h3>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/aws.svg" alt="AWS Logo">
+                                </span>
+                                <span class="skill-name">AWS (EC2, S3)</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/docker.svg" alt="Docker Logo">
+                                </span>
+                                <span class="skill-name">Docker (Basic)</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/firebase.svg" alt="Firebase Logo">
+                                </span>
+                                <span class="skill-name">Firebase</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/git.svg" alt="Git Logo">
+                                </span>
+                                <span class="skill-name">Git</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/github.svg" alt="GitHub Logo">
+                                </span>
+                                <span class="skill-name">GitHub</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">
+                                    <img src="./assets/icons/cicd.svg" alt="CI/CD Icon">
+                                </span>
+                                <span class="skill-name">CI/CD (Basic)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6">
+                <h2 data-aos="fade-up" class="section-title">INTERNSHIP EXPERIENCE</h2>
+                
+                <div class="relative border-l-2 border-accent-indigo/50 mx-auto max-w-2xl px-4">
+                    
+                    <div data-aos="fade-up" class="timeline-item">
+                        <div class="timeline-dot bg-accent-purple"></div>
+                        
+                        <div class="p-6 bg-card-dark rounded-xl shadow-2xl border border-accent-indigo/20 hover:shadow-indigo-500/30 transition">
+                            <h3 class="text-xl font-semibold text-white">Python Programming Intern</h3>
+                            <p class="text-md text-accent-purple">YBI Foundation</p>
+                            <time class="block text-sm text-gray-400 mb-2">Jul 2024 | Remote</time>
+                            
+                            <ul class="list-disc ml-5 mt-2 text-gray-300 space-y-1">
+                                <li>Built automation scripts for data processing & file conversion.</li>
+                                <li>Improved modular code performance by 20%; used Git/GitHub for workflow.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6">
+                <h2 data-aos="fade-up" class="section-title">PROJECTS</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg text-gray-400 mb-12">
+                    Delivered 6+ real-world projects showcasing full-stack proficiency.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div data-aos="flip-up" class="project-card">
+                        <img src="./assets/projects/readflow.jpg" alt="ReadFlow Project Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">ReadFlow - Library Management System</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Built full-stack library system with authentication, admin dashboard, CRUD operations, and borrowing flow. Used **PostgreSQL**, **Drizzle ORM**, and **Auth.js**.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Next.js</span>
+                                <span class="skill-badge-project">PostgreSQL</span>
+                                <span class="skill-badge-project">Drizzle ORM</span>
+                            </div>
+                            <button data-project-id="readflow" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                    <div data-aos="flip-up" data-aos-delay="100" class="project-card">
+                        <img src="./assets/projects/voxinterview.jpg" alt="VoxInterview AI Project Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">VoxInterview AI - AI Voice Interviewer</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Real-time AI interviewer with voice conversation, transcript analysis, and instant feedback. Built using **Next.js**, **Gemini AI**, and **Firebase Authentication**.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Next.js</span>
+                                <span class="skill-badge-project">Firebase</span>
+                                <span class="skill-badge-project">Gemini AI</span>
+                            </div>
+                            <button data-project-id="voxinterview" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                    <div data-aos="flip-up" data-aos-delay="200" class="project-card">
+                        <img src="./assets/projects/shopsphere.jpg" alt="ShopSphere E-Commerce Project Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">ShopSphere - E-Commerce SaaS</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Developed vendor and product microservices using **Node.js/Express.js**. Integrated **MongoDB** and **ImageKit CDN** for faster media delivery.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Node.js</span>
+                                <span class="skill-badge-project">Express.js</span>
+                                <span class="skill-badge-project">MongoDB</span>
+                            </div>
+                            <button data-project-id="shopsphere" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                    <div data-aos="flip-up" data-aos-delay="300" class="project-card">
+                        <img src="./assets/projects/iamsafe.jpg" alt="I Am Safe Android App Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">I Am Safe - Safety Android App</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                SOS alerts with live location sharing and guardian notifications. Integrated **Google Maps API** for tracking, nearby hospitals, and speed detection. Built with **Android Studio** and **Java**.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Android Studio</span>
+                                <span class="skill-badge-project">Java</span>
+                                <span class="skill-badge-project">SQLite</span>
+                            </div>
+                            <button data-project-id="iamsafe" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                    <div data-aos="flip-up" data-aos-delay="400" class="project-card">
+                        <img src="./assets/projects/finsight.jpg" alt="FinSight AI Stock Dashboard Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">FinSight AI - Live Stock Dashboard</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Real-time stock charts, fundamentals, insights and watchlist. Used **Next.js** and **Alpha Vantage API** with effective API caching for a responsive UI.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Next.js</span>
+                                <span class="skill-badge-project">Alpha Vantage API</span>
+                                <span class="skill-badge-project">API Caching</span>
+                            </div>
+                            <button data-project-id="finsight" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                    <div data-aos="flip-up" data-aos-delay="500" class="project-card">
+                        <img src="./assets/projects/medilink.jpg" alt="MediLink Patient Management System Screenshot" class="w-full h-40 object-cover rounded-t-xl mb-4 border-b border-accent-indigo/20">
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">MediLink - Patient Management System</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Appointment booking and patient record management system. Implemented automated SMS reminders via **Twilio API**. Used **Next.js** for the frontend.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Next.js</span>
+                                <span class="skill-badge-project">Django REST</span>
+                                <span class="skill-badge-project">Twilio API</span>
+                            </div>
+                            <button data-project-id="medilink" class="project-details-btn">View Details</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="articles" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6">
+                <h2 data-aos="fade-up" class="section-title">ARTICLES & BLOG</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg text-gray-400 mb-12">
+                    Insights and technical deep-dives on Full Stack Development.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div data-aos="flip-up" class="project-card">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">My Full-Stack Developer Roadmap for 2025</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Becoming a full-stack developer means balancing frontend, backend, databases, deployment, and soft skills. My roadmap for 2025 helped me become more efficient and industry-ready.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">Next.js</span>
+                                <span class="skill-badge-project">PostgreSQL</span>
+                                <span class="skill-badge-project">Docker</span>
+                            </div>
+                            <button data-article-id="blog1" class="project-details-btn">Read Article</button>
+                        </div>
+                    </div>
+                    <div data-aos="flip-up" data-aos-delay="100" class="project-card">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">REST API vs GraphQL: Simple Explanation for Beginners</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Developers often get confused between REST and GraphQL. Here’s a clear comparison, focusing on how GraphQL helps with complex UIs and dashboards.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">REST API</span>
+                                <span class="skill-badge-project">GraphQL</span>
+                                <span class="skill-badge-project">Dashboard</span>
+                            </div>
+                            <button data-article-id="blog2" class="project-details-btn">Read Article</button>
+                        </div>
+                    </div>
+                    <div data-aos="flip-up" data-aos-delay="200" class="project-card">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-accent-purple">Understanding Web Authentication (JWT vs OAuth vs Session Auth)</h3>
+                            <p class="text-gray-400 mb-4 h-16 line-clamp-3">
+                                Security is a core skill for full-stack developers. This is how I understand the three main auth systems: JWT, Session Auth, and OAuth, and their real-world uses.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge-project">JWT</span>
+                                <span class="skill-badge-project">OAuth</span>
+                                <span class="skill-badge-project">Sessions</span>
+                            </div>
+                            <button data-article-id="blog3" class="project-details-btn">Read Article</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6 max-w-2xl">
+                <h2 data-aos="fade-up" class="section-title">EDUCATION</h2>
+                
+                <div data-aos="fade-up" class="relative border-l-2 border-accent-indigo/50 px-4 mx-auto">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-accent-purple"></div>
+                        <div class="p-6 bg-card-dark rounded-xl shadow-2xl border border-accent-indigo/20 hover:shadow-indigo-500/30 transition">
+                            <h3 class="text-2xl font-semibold text-white mb-1">Bachelor of Computer Applications (BCA)</h3>
+                            <p class="text-lg text-accent-purple mb-1">Alva's College, Mangaluru</p>
+                            <time class="block text-sm text-gray-400 mb-2">2020 – 2023 | CGPA: 8.05</time>
+                            
+                            <p class="mt-4 text-gray-300">
+                                Comprehensive study of computer applications including programming languages (C, Java), database management, and core web development principles.
+                            </p>
+                            <ul class="list-disc ml-5 mt-3 text-gray-400 space-y-1 text-sm">
+                                <li>Major coursework in Data Structures and Web Technologies.</li>
+                                <li>Final year focus on full-stack project development.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6">
+                <h2 data-aos="fade-up" class="section-title">CERTIFICATIONS</h2>
+                
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-card-dark p-8 rounded-xl shadow-2xl border border-accent-indigo/20 mx-auto max-w-3xl">
+                    <p class="text-lg text-gray-400 mb-6 italic">These certifications validate proficiency in modern full-stack development.</p>
+                    <ul class="space-y-4 text-gray-300 text-lg">
+                        <li class="p-3 bg-primary-dark rounded-lg border-l-4 border-accent-purple hover:bg-primary-dark/50 transition">
+                            <a href="./assets/certificates/udemy-master-fullstack.pdf" target="_blank" class="certificate-link block"> Master Full Stack Web Development With Games and Application - Udemy (2025) </a>
+                        </li>
+                        <li class="p-3 bg-primary-dark rounded-lg border-l-4 border-accent-purple hover:bg-primary-dark/50 transition">
+                            <a href="./assets/certificates/meta-frontend.pdf" target="_blank" class="certificate-link block"> Meta Front-End Developer Professional Certificate - Coursera (2025) </a>
+                        </li>
+                        <li class="p-3 bg-primary-dark rounded-lg border-l-4 border-accent-purple hover:bg-primary-dark/50 transition">
+                            <a href="./assets/certificates/freecodecamp-js-ds.pdf" target="_blank" class="certificate-link block"> JavaScript Algorithms & Data Structures - freeCodeCamp (2025) </a>
+                        </li>
+                        <li class="p-3 bg-primary-dark rounded-lg border-l-4 border-accent-purple hover:bg-primary-dark/50 transition">
+                            <a href="./assets/certificates/microsoft-career-essentials.pdf" target="_blank" class="certificate-link block"> Career Essentials in Software Development by Microsoft and LinkedIn (2024) </a>
+                        </li>
+                        <li class="p-3 bg-primary-dark rounded-lg border-l-4 border-accent-purple hover:bg-primary-dark/50 transition">
+                            <a href="./assets/certificates/linkedin-intro-career.pdf" target="_blank" class="certificate-link block"> Introduction to Career Skills in Software Development - LinkedIn (2024) </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-primary-dark">
+            <div class="container mx-auto px-6 max-w-xl">
+                <h2 data-aos="fade-up" class="section-title">CONTACT ME</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg text-gray-400 mb-4">
+                    Phone: <span class="text-accent-purple">9945185153</span> | Email: <span class="text-accent-purple">shraddhamoily392@gmail.com</span>
+                </p>
+                <p data-aos="fade-up" data-aos-delay="150" class="text-center text-lg text-gray-400 mb-8">
+                    I am currently open to new opportunities. Let's build something great.
+                </p>
+                
+                <form id="contact-form" data-aos="fade-up" data-aos-delay="200" class="p-8 bg-card-dark rounded-xl shadow-2xl border border-accent-indigo/20">
+                    <div class="mb-6">
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-2 bg-primary-dark border border-indigo-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-purple transition">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-4 py-2 bg-primary-dark border border-indigo-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-purple transition">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required
+                            class="w-full px-4 py-2 bg-primary-dark border border-indigo-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-purple transition"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full px-6 py-3 bg-gradient-to-r from-accent-indigo to-accent-purple text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-[1.01]">
+                        Send Message
+                    </button>
+                    <p id="form-message" class="hidden mt-4 text-center"></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="py-8 bg-card-dark border-t border-indigo-900/50">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Shraddha. All rights reserved. </p>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal-overlay hidden">
+        <div id="project-modal-overlay" class="fixed inset-0 bg-black/70 z-40"></div>
+        <div class="modal-window bg-card-dark rounded-xl shadow-2xl p-8 max-w-lg w-full relative z-50">
+            
+            <button id="project-modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h2 id="modal-project-title" class="text-3xl font-bold text-accent-indigo mb-4"></h2>
+            
+            <div id="modal-project-content" class="text-lg mb-6 max-h-[60vh] overflow-y-auto pr-2">
+                </div>
+        </div>
+    </div>
+
+    <div id="chatbot-container">
+        </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="./script.js"></script> 
+</body>
+</html>

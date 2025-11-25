@@ -1,0 +1,332 @@
+/* Custom CSS Variables (Matching Tailwind Configuration in index.html) */
+:root {
+    --primary-dark: #0a0a2a; 
+    --card-dark: #151535;
+    --accent-indigo: #a855f7;
+    --accent-purple: #c084fc;
+}
+
+/* Base Styles & Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Title Style (The centered title bar look) */
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-purple);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- Card Components (Shared Styling) --- */
+
+/* Skill/Experience/Project/Education Card Styles */
+.skill-category-card, .project-card, .education-card, .education-timeline-container {
+    background-color: var(--card-dark);
+    /* Removed padding from the main card container to allow the image to sit at the top edge. */
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    transition: all 0.3s;
+    height: 100%;
+    /* Added default padding for project-card children if not overridden with p-6 */
+    padding: 0; 
+    overflow: hidden; /* Important for rounding corners correctly with image */
+}
+/* Re-applying padding for non-project card types */
+.skill-category-card, .education-card, .education-timeline-container {
+    padding: 1.5rem;
+}
+
+.skill-category-card:hover, .project-card:hover, .education-card:hover, .education-timeline-container:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.7); /* Neon glow effect on hover */
+    transform: translateY(-4px);
+}
+
+/* --- SKILLS Section Specific Styles --- */
+
+.skill-category-title {
+    font-size: 1.5rem; /* 2xl */
+    font-weight: 600; /* semibold */
+    margin-bottom: 1.5rem; /* mb-6 */
+    color: var(--accent-purple);
+    border-bottom: 2px solid rgba(168, 85, 247, 0.5); /* Border matching accent */
+    padding-bottom: 0.5rem; /* pb-2 */
+}
+
+/* The individual skill badge/item container (Matches the look of the badges in the image) */
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    background-color: #211d44; /* Darker interior color */
+    border: 1px solid #7c3aed; /* Stronger accent border */
+    padding: 0.75rem 0.5rem; /* Adjust padding for better shape */
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.3); /* Initial subtle neon glow */
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+    flex-direction: column; /* Stack icon and name vertically */
+    height: 100px; /* Fixed height for uniformity in the grid */
+    text-align: center;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.8), 0 0 5px rgba(255, 255, 255, 0.2); /* Brighter glow */
+}
+
+/* The icon placeholder/container */
+.skill-icon {
+    --icon-color: #ffffff; /* Default fallback */
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem; /* Space between icon and name */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* 💥 NEW CSS RULE: Ensures the logo image fits properly 💥 */
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.skill-name {
+    font-size: 0.85rem; /* Slightly smaller text */
+    font-weight: 500;
+    color: white;
+    line-height: 1.2;
+}
+
+/* Project Skill Badge Styles (Used within Project cards - smaller, badge look) */
+.skill-badge-project {
+    padding: 0.25rem 0.75rem;
+    background-color: #3730a3; 
+    color: #e5e7eb; 
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+}
+
+/* --- Timeline Styles (Experience & Education) --- */
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative; /* Essential for positioning the dot */
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-purple);
+    border-radius: 50%;
+    margin-top: 5px;
+    left: -7px; /* Position dot over the line */
+    border: 3px solid var(--primary-dark);
+    z-index: 10; /* Ensure dot is on top of the line */
+}
+
+.certificate-link {
+    color: var(--accent-purple);
+    transition: color 0.2s;
+    display: block; /* Ensures the hover state covers the full list item padding */
+}
+
+.certificate-link:hover {
+    color: var(--accent-indigo);
+    text-decoration: underline;
+}
+
+/* --- Modal Styles --- */
+
+/* Overlay for the modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Modal Window (The actual popup box) */
+.modal-window {
+    max-height: 90vh;
+}
+
+/* --- Chatbot Widget Styles (NEW) --- */
+
+/* Container for the floating button */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+/* The floating toggle button */
+.chatbot-toggle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-indigo);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(168, 85, 247, 0.7); /* Neon glow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.chatbot-toggle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-purple);
+}
+
+/* The main chat window */
+.chatbot-window {
+    position: absolute;
+    bottom: 80px; /* Position above the toggle button */
+    right: 0;
+    width: 350px;
+    height: 450px;
+    background-color: var(--primary-dark);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--accent-indigo);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.chatbot-window.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Chat window header */
+.chatbot-header {
+    padding: 1rem;
+    background-color: var(--accent-indigo);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chat window body (messages) */
+.chatbot-body {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #101030; /* Slightly different background */
+    color: white;
+}
+
+/* Chat window footer (input) */
+.chatbot-input-area {
+    padding: 1rem;
+    border-top: 1px solid rgba(168, 85, 247, 0.3);
+    background-color: var(--card-dark);
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Style for the new TEXTAREA input field */
+.chatbot-input-area textarea {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent-indigo);
+    background-color: var(--primary-dark);
+    color: white;
+    outline: none;
+    resize: none; /* Disable manual resizing */
+    min-height: 40px; /* Base height */
+    max-height: 120px; /* Max height for code block input */
+    line-height: 1.4;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.chatbot-input-area button {
+    background-color: var(--accent-purple);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.chatbot-input-area button:hover {
+    background-color: var(--accent-indigo);
+}
+
+/* --- Code Block Styling --- */
+
+/* Style for displaying AI reviewed code blocks (Black background, green/neon text) */
+.code-block {
+    background-color: #000000; /* Black background for code */
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow-x: auto;
+    border: 1px solid var(--accent-indigo);
+}
+
+.code-block code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    color: #4CAF50; /* Green/Neon color for code text */
+    white-space: pre-wrap; 
+    word-break: break-all;
+}
+
+/* Style for user-submitted code in the chat history (Dark purple background, light purple text) */
+.code-block-user {
+    background-color: #211d44; /* Darker interior color */
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow-x: auto;
+    border: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+.code-block-user code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    color: #c084fc; /* Light purple for user code */
+    white-space: pre-wrap;
+    word-break: break-all;
+}
