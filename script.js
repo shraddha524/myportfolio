@@ -68,10 +68,10 @@ const projectData = {
             <p class="text-gray-300 mb-4">A complete full-stack library system for university management, focusing on security and data integrity.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>Built full-stack system with **Auth.js** for authentication.</li>
-                <li>Admin dashboard for **CRUD** operations (Books, Users).</li>
-                <li>Created **PostgreSQL** schemas with **Drizzle ORM** and implemented migrations.</li>
-                <li>Integrated **ImageKit** for optimized media management.</li>
+                <li>Built full-stack system with Auth.js for authentication.</li>
+                <li>Admin dashboard for CRUD operations (Books, Users).</li>
+                <li>Created PostgreSQL schemas with Drizzle ORM and implemented migrations.</li>
+                <li>Integrated ImageKit for optimized media management.</li>
             </ul>
         `,
         link: "https://github.com/shraddha524/ReadFlow"
@@ -82,7 +82,7 @@ const projectData = {
             <p class="text-gray-300 mb-4">An advanced AI tool that simulates job interviews with real-time voice conversation and feedback using Google Gemini AI.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>Developed real-time AI interviewer with **Gemini AI** and **VY Voice SDK**.</li>
+                <li>Developed real-time AI interviewer with Gemini AI and VY Voice SDK.</li>
                 <li>Features voice conversation, transcript analysis, and instant feedback.</li>
                 <li>Built dashboards, interview history, and **Firebase Authentication**.</li>
             </ul>
@@ -95,9 +95,9 @@ const projectData = {
             <p class="text-gray-300 mb-4">A scalable multi-vendor e-commerce platform built on a microservices architecture.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>Developed vendor and product **microservices** using **Node.js/Express.js**.</li>
-                <li>Used **MongoDB** for flexible product catalog storage.</li>
-                <li>Integrated **ImageKit CDN** for faster media delivery.</li>
+                <li>Developed vendor and product microservices using Node.js/Express.js.</li>
+                <li>Used MongoDB for flexible product catalog storage.</li>
+                <li>Integrated ImageKit CDN for faster media delivery.</li>
             </ul>
         `,
         link: "https://github.com/shraddha524/eshop"
@@ -108,10 +108,10 @@ const projectData = {
             <p class="text-gray-300 mb-4">An Android mobile application focused on personal safety, providing immediate help alerts.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>Built using **Android Studio** and **Java**.</li>
+                <li>Built using Android Studio and Java.</li>
                 <li>SOS alerts with live location sharing and guardian notifications.</li>
-                <li>Integrated **Google Maps API** for tracking, nearby hospitals, and speed detection.</li>
-                <li>Used **SQLite** for local data persistence.</li>
+                <li>Integrated Google Maps API for tracking, nearby hospitals, and speed detection.</li>
+                <li>Used SQLite for local data persistence.</li>
             </ul>
         `,
         link: "https://github.com/shraddha524/womensafe"
@@ -122,8 +122,8 @@ const projectData = {
             <p class="text-gray-300 mb-4">A financial data visualization dashboard for tracking real-time stock information and market fundamentals.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>Real-time stock charts, fundamentals, insights and watchlist built with **Next.js**.</li>
-                <li>Used **Alpha Vantage API** for live data.</li>
+                <li>Real-time stock charts, fundamentals, insights and watchlist built with Next.js.</li>
+                <li>Used Alpha Vantage API for live data.</li>
                 <li>Implemented API caching for responsive UI.</li>
                 
             </ul>
@@ -137,8 +137,8 @@ const projectData = {
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Features:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
                 <li>Appointment booking, patient record management, and role-based authentication.</li>
-                <li>Implemented automated SMS reminders for appointments using the **Twilio API**.</li>
-                <li>Used **Django REST Framework** for the backend API.</li>
+                <li>Implemented automated SMS reminders for appointments using the Twilio API.</li>
+                <li>Used Django REST Frameworkfor the backend API.</li>
             </ul>
         `,
         link: "https://github.com/shraddha524/medilink"
@@ -153,10 +153,10 @@ const articleData = {
             <p class="text-gray-300 mb-4">Becoming a full-stack developer means balancing frontend, backend, databases, deployment, and soft skills. My roadmap for 2025 helped me become more efficient and industry-ready.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Roadmap Highlights:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**Frontend:** Next.js (App Router), React (Hooks, Context, State), TailwindCSS.</li>
-                <li>**Backend:** Node.js + Express, Django REST API, Advanced Authentication.</li>
-                <li>**Databases:** PostgreSQL, MongoDB, Prisma ORM.</li>
-                <li>**DevOps:** Git/GitHub, CI/CD, Docker (beginner), Deployment (Vercel, Render).</li>
+                <li>Frontend: Next.js (App Router), React (Hooks, Context, State), TailwindCSS.</li>
+                <li>Backend: Node.js + Express, Django REST API, Advanced Authentication.</li>
+                <li>Databases: PostgreSQL, MongoDB, Prisma ORM.</li>
+                <li>DevOps: Git/GitHub, CI/CD, Docker (beginner), Deployment (Vercel, Render).</li>
             </ul>
             <p class="text-md text-gray-400 mt-4 italic">📌 Key Lesson: “Don’t try to learn everything. Learn what helps you build real apps.”</p>
         `,
@@ -168,10 +168,10 @@ const articleData = {
             <p class="text-gray-300 mb-4">Developers often get confused between REST and GraphQL. Here’s a clear comparison:</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Comparison Points:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**REST:** Multiple endpoints, returns fixed data, can over-fetch, simple & widely used.</li>
-                <li>**GraphQL:** One endpoint, client chooses fields, no under/over fetching, faster for dashboards.</li>
+                <li>REST: Multiple endpoints, returns fixed data, can over-fetch, simple & widely used.</li>
+                <li>GraphQL: One endpoint, client chooses fields, no under/over fetching, faster for dashboards.</li>
             </ul>
-            <p class="text-md text-gray-400 mt-4 italic">📌 When to Use What: **REST** → Blogs, CRUD apps, small/medium apps. **GraphQL** → Dashboards, analytics apps, complex UIs.</p>
+            <p class="text-md text-gray-400 mt-4 italic">📌 When to Use What: REST → Blogs, CRUD apps, small/medium apps. GraphQL → Dashboards, analytics apps, complex UIs.</p>
         `,
         link: "#" 
     },
@@ -181,11 +181,11 @@ const articleData = {
             <p class="text-gray-300 mb-4">Security is a core skill for full-stack developers. This is how I understand the three main auth systems:</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Auth Systems:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**JWT (Token Auth):** No server session, fast, used in SPAs + mobile apps.</li>
-                <li>**Session Auth:** Server stores session, cookie-based, great for admin dashboards.</li>
-                <li>**OAuth (Google, GitHub Login):** No password needed, secure, uses external identity providers.</li>
+                <li>JWT (Token Auth): No server session, fast, used in SPAs + mobile apps.</li>
+                <li>Session Auth: Server stores session, cookie-based, great for admin dashboards.</li>
+                <li>OAuth (Google, GitHub Login):No password needed, secure, uses external identity providers.</li>
             </ul>
-            <p class="text-md text-gray-400 mt-4 italic">📌 Real-world Uses: **JWT** → Public web apps. **Sessions** → Admin dashboards. **OAuth** → Consumer apps.</p>
+            <p class="text-md text-gray-400 mt-4 italic">📌 Real-world Uses: JWT → Public web apps. Sessions → Admin dashboards. OAuth → Consumer apps.</p>
         `,
         link: "#" 
     },
@@ -195,11 +195,11 @@ const articleData = {
             <p class="text-gray-300 mb-4">React is amazing — but Next.js is the better production framework. It provides a comprehensive full-stack toolkit right out of the box.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Next.js Advantages:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**Built-in Routing:** No need for \`react-router\`.</li>
-                <li>**Server Components:** Better performance, less JavaScript bundle size.</li>
-                <li>**In-built API Routes:** Frontend + Backend in one codebase.</li>
-                <li>**SEO-Friendly:** Perfect for portfolios, blogs, and e-commerce.</li>
-                <li>**Lightning-fast Deployment:** Seamless integration with Vercel.</li>
+                <li>Built-in Routing: No need for \`react-router\`.</li>
+                <li>Server Components: Better performance, less JavaScript bundle size.</li>
+                <li>In-built API Routes:Frontend + Backend in one codebase.</li>
+                <li>SEO-Friendly:Perfect for portfolios, blogs, and e-commerce.</li>
+                <li>Lightning-fast Deployment: Seamless integration with Vercel.</li>
             </ul>
             <p class="text-md text-gray-400 mt-4 italic">📌 Final Thought: Next.js is React + backend + deployment = a full-stack toolkit.</p>
         `,
@@ -211,10 +211,10 @@ const articleData = {
             <p class="text-gray-300 mb-4">System Design is essential, even for freshers. This is the beginner version I use for understanding how to build scalable applications.</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Key Components:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**Database Layer:** SQL (PostgreSQL) or NoSQL (MongoDB).</li>
-                <li>**Caching Layer:** Use Redis to speed up database reads.</li>
-                <li>**Load Balancer:** Ensures servers don’t get overloaded, distributing traffic.</li>
-                <li>**CDN:** Delivers images and static files globally for faster access.</li>
+                <li>Database Layer: SQL (PostgreSQL) or NoSQL (MongoDB).</li>
+                <li>Caching Layer: Use Redis to speed up database reads.</li>
+                <li>Load Balancer: Ensures servers don’t get overloaded, distributing traffic.</li>
+                <li>CDN: Delivers images and static files globally for faster access.</li>
             </ul>
             <p class="text-md text-gray-400 mt-4 italic">📌 Simple Rule: “Start with monolith. Scale with microservices.”</p>
         `,
@@ -226,11 +226,11 @@ const articleData = {
             <p class="text-gray-300 mb-4">The right tools make you faster and more efficient. Here are my favorites across different development stages:</p>
             <h5 class="text-xl font-semibold text-accent-purple mb-2">Top Tools:</h5>
             <ul class="list-disc ml-5 text-gray-300 space-y-1">
-                <li>**Coding Tools:** VS Code, Prettier, ESLint.</li>
-                <li>**API & Testing:** Postman, Thunder Client.</li>
-                <li>**UI/UX:** TailwindCSS, ShadCN, Figma.</li>
-                <li>**Databases:** Prisma Studio, MongoDB Compass.</li>
-                <li>**Deployment:** Vercel, Render, Railway.</li>
+                <li>Coding Tools:VS Code, Prettier, ESLint.</li>
+                <li>API & Testing: Postman, Thunder Client.</li>
+                <li>UI/UX: TailwindCSS, ShadCN, Figma.</li>
+                <li>Databases:Prisma Studio, MongoDB Compass.</li>
+                <li>Deployment: Vercel, Render, Railway.</li>
             </ul>
         `,
         link: "#" 
@@ -319,18 +319,18 @@ function initializeContactForm() {
 // --- Chatbot Widget Functionality (Uses Resume Data) ---
 const chatbotKnowledge = {
     // Portfolio Guide Content
-    shraddha: "Shraddha is a Full Stack Developer experienced in building production-ready web apps using React, Next.js, Node.js, Express, Django, PostgreSQL, MongoDB, Redis, and cloud tools. She has delivered 6+ real-world projects. **🔥 Next step: Ask me about her 'skills'.**",
-    contact: "You can reach Shraddha at **shraddhamoily392@gmail.com** or call **9945185153**. The contact form is at the bottom of the page. **🔥 Next step: Ask me about her 'education'.**",
-    education: "Shraddha holds a Bachelor of Computer Applications (BCA) from Alva's College (2020-2023) with a CGPA of 8.05. **🔥 Next step: Ask me about her 'experience'.**",
-    experience: "Shraddha completed a Python Programming Intern role at YBI Foundation (Jul 2024), where she built automation scripts and improved modular code performance by 20%. **🔥 Next step: Ask me for her 'best project'.**",
+    shraddha: "Shraddha is a Full Stack Developer experienced in building production-ready web apps using React, Next.js, Node.js, Express, Django, PostgreSQL, MongoDB, Redis, and cloud tools. She has delivered 6+ real-world projects. 🔥 Next step: Ask me about her 'skills'.",
+    contact: "You can reach Shraddha at shraddhamoily392@gmail.com or call 9945185153. The contact form is at the bottom of the page. 🔥 Next step: Ask me about her 'education'.",
+    education: "Shraddha holds a Bachelor of Computer Applications (BCA) from Alva's College (2020-2023) with a CGPA of 8.05. 🔥 Next step: Ask me about her 'experience'.",
+    experience: "Shraddha completed a Python Programming Intern role at YBI Foundation (Jul 2024), where she built automation scripts and improved modular code performance by 20%. 🔥 Next step: Ask me for her 'best project'.",
     fallback: "I'm sorry, I don't have information on that topic. Try asking about 'skills', 'projects', or ask for her 'best project' for a guided tour!",
     
     // Guided Portfolio Responses
-    combined_intro: "Welcome to the **AI Developer Guide**! I offer a guided tour of Shraddha's portfolio, skills, and projects. You can ask for 'skills', 'best project', or try my **Bug Detector** mode by pasting an error log! *To use the Resume Analyzer, type 'analyze resume'.*",
-    skills: "Shraddha's core skills are organized for full-stack excellence: <strong>Frontend:</strong> React.js, Next.js, TailwindCSS. <strong>Backend:</strong> Node.js, Express.js, Django REST Framework, REST APIs. <strong>Databases:</strong> PostgreSQL, MongoDB, Redis. She always prioritizes the right tool for the job. **🔥 Next step: Ask me about her 'best project'.**",
-    projects: "Shraddha has delivered 6+ projects. Key projects include **ReadFlow** (Library System - Next.js/PostgreSQL) and **VoxInterview AI** (AI Platform - Gemini AI). I can provide links for any project. **🔥 Next step: Ask me to 'show links' or about 'ReadFlow'.**",
-    best_project: "I highly recommend checking out the **ReadFlow - University Library Management System**. It showcases her full-stack capabilities: **Next.js** frontend, **PostgreSQL** database with **Drizzle ORM**, and secure **Auth.js** integration. **🔥 Next step: Ask me to 'show link for ReadFlow'.**",
-    resume_analyzer_prompt: "Welcome to the **Resume Analyzer Chatbot**! Please **paste the complete text content of your resume/CV** into the input area below and hit send. I will provide a professional, multi-point analysis on missing skills, ATS readiness, and grammatical suggestions.",
+    combined_intro: "Welcome to the AI Developer Guide! I offer a guided tour of Shraddha's portfolio, skills, and projects. You can ask for 'skills', 'best project', or try my Bug Detector mode by pasting an error log! *To use the Resume Analyzer, type 'analyze resume'.*",
+    skills: "Shraddha's core skills are organized for full-stack excellence: <strong>Frontend:</strong> React.js, Next.js, TailwindCSS. <strong>Backend:</strong> Node.js, Express.js, Django REST Framework, REST APIs. <strong>Databases:</strong> PostgreSQL, MongoDB, Redis. She always prioritizes the right tool for the job. 🔥 Next step: Ask me about her 'best project'.",
+    projects: "Shraddha has delivered 6+ projects. Key projects include ReadFlow (Library System - Next.js/PostgreSQL) and VoxInterview AI (AI Platform - Gemini AI). I can provide links for any project. 🔥 Next step: Ask me to 'show links' or about 'ReadFlow'.",
+    best_project: "I highly recommend checking out the ReadFlow - University Library Management System. It showcases her full-stack capabilities: Next.js frontend, PostgreSQL database with Drizzle ORM, and secure Auth.js integration. 🔥 Next step: Ask me to 'show link for ReadFlow'.",
+    resume_analyzer_prompt: "Welcome to the Resume Analyzer Chatbot! Please paste the complete text content of your resume/CV into the input area below and hit send. I will provide a professional, multi-point analysis on missing skills, ATS readiness, and grammatical suggestions.",
 
     // Helper functions for links and project details
     show_links: (projectName) => {
@@ -366,38 +366,38 @@ const chatbotKnowledge = {
 
         response += "#### 📊 ATS Readiness Check\n";
         if (wordCount < 100 || wordCount > 800) {
-            response += "❌ **Word Count:** Too long or too short. Ideal professional length is 250-500 words. **Suggestion:** Be more concise in descriptions.\n";
+            response += "❌ **Word Count:** Too long or too short. Ideal professional length is 250-500 words. Suggestion: Be more concise in descriptions.\n";
         } else {
-            response += "✅ **Word Count:** Optimal length detected (approx. **" + wordCount + "** words). This helps with ATS processing.\n";
+            response += "✅ Word Count: Optimal length detected (approx. " + wordCount + " words). This helps with ATS processing.\n";
         }
         if (!cleanContent.includes('react') && !cleanContent.includes('python')) {
-            response += "⚠️ **Keyword Density:** Missing high-value keywords like 'React', 'Python', or 'Cloud'. **Suggestion:** Ensure the job description keywords are present.\n";
+            response += "⚠️*Keyword Density: Missing high-value keywords like 'React', 'Python', or 'Cloud'. Suggestion: Ensure the job description keywords are present.\n";
         } else {
-            response += "✅ **Format:** Good use of clear section headers and bullet points (detected **" + lineCount + "** lines). Highly ATS-friendly.\n";
+            response += "✅ Format: Good use of clear section headers and bullet points (detected " + lineCount + " lines). Highly ATS-friendly.\n";
         }
 
         response += "\n#### 💡 Missing Skills & Suggestions\n";
         if (!cleanContent.includes('docker') || !cleanContent.includes('aws')) {
-            response += "1. **DevOps Gap:** Missing depth in **Docker**, **Kubernetes**, or advanced **AWS/Azure/GCP** services. **Suggestion:** Elaborate on deployment experience.\n";
+            response += "1. DevOps Gap: Missing depth in Docker, Kubernetes, or advanced AWS/Azure/GCP services. Suggestion: Elaborate on deployment experience.\n";
         } else {
-            response += "1. **Soft Skills:** Recommend integrating more action-oriented soft skills (e.g., 'Mentored Junior Developers' or 'Improved Team Velocity').\n";
+            response += "1. Soft Skills: Recommend integrating more action-oriented soft skills (e.g., 'Mentored Junior Developers' or 'Improved Team Velocity').\n";
         }
         if (!cleanContent.includes('testing') || !cleanContent.includes('jest') || !cleanContent.includes('unit')) {
-             response += "2. **Testing:** Missing specific mention of testing frameworks like **Jest, Mocha, or Cypress**. **Suggestion:** Quantify experience with Unit/Integration testing.\n";
+             response += "2. Testing: Missing specific mention of testing frameworks like Jest, Mocha, or Cypress. Suggestion:Quantify experience with Unit/Integration testing.\n";
         } else {
-             response += "2. **Technical Depth:** Good mention of technical terms. Focus on quantifying results (e.g., 'Reduced latency by 15%').\n";
+             response += "2. Technical Depth: Good mention of technical terms. Focus on quantifying results (e.g., 'Reduced latency by 15%').\n";
         }
         
 
         response += "\n#### 📝 Grammatical & Style Tips\n";
         if (content.match(/responsible for/i)) {
-            response += "⚠️ **Passive Voice:** Avoid phrases like 'Responsible for X'. **Suggestion:** Start every bullet point with a strong **Action Verb** (e.g., 'Developed', 'Engineered', 'Optimized').\n";
+            response += "⚠️ Passive Voice: Avoid phrases like 'Responsible for X'. Suggestion: Start every bullet point with a strong Action Verb (e.g., 'Developed', 'Engineered', 'Optimized').\n";
         } else {
-            response += "✅ **Action Verbs:** Strong use of active voice detected, which increases impact.\n";
+            response += "✅ Action Verbs:Strong use of active voice detected, which increases impact.\n";
         }
-        response += "2. **Consistency:** Ensure dates and titles are consistently formatted throughout the document.\n";
+        response += "2. Consistency: Ensure dates and titles are consistently formatted throughout the document.\n";
         
-        response += "\n*This detailed analysis demonstrates professional diligence and understanding of recruitment best practices.* **🔥 Next step: Ask me about her 'skills'.**";
+        response += "\nThis detailed analysis demonstrates professional diligence and understanding of recruitment best practices.🔥 Next step: Ask me about her 'skills'.";
         return response;
     },
 
@@ -406,28 +406,28 @@ const chatbotKnowledge = {
         const lines = code.split('\n').filter(line => line.trim().length > 0);
         
         let response = "### 🤖 Code Review Summary\n\n";
-        response += "This is a **Code Reviewer Guide** response. It showcases Shraddha's ability to analyze and improve code architecture.\n\n";
+        response += "This is a Code Reviewer Guide response. It showcases Shraddha's ability to analyze and improve code architecture.\n\n";
 
         if (lines.length < 5) {
-            response += "⚠️ **Submission Too Short:** The submitted code fragment is very short. While the structure looks fine, a more substantial block is needed for deep analysis.\n\n";
+            response += "⚠️ Submission Too Short: The submitted code fragment is very short. While the structure looks fine, a more substantial block is needed for deep analysis.\n\n";
         } else {
-            response += "✅ **General Impression:** The code is readable and follows basic conventions. However, the AI has identified several areas for potential improvement to enhance performance and maintainability.\n\n";
+            response += "✅ General Impression: The code is readable and follows basic conventions. However, the AI has identified several areas for potential improvement to enhance performance and maintainability.\n\n";
             
             response += "#### 🚨 Detected Issues (Simulated)\n";
             response += `<pre class="code-block"><code>${code}</code></pre>`;
-            response += "1. **Modern JavaScript:** The usage of `var` (if present) should be replaced with `let` or `const` for proper block-scoping and modern JS practices. *This prevents common hoisting bugs.*\n";
-            response += "2. **Performance:** If this function runs in a loop, watch for potential **O(N²)** complexity. Shraddha prefers **O(N log N)** or **O(N)** solutions using structures like HashMaps.\n\n";
+            response += "1. Modern JavaScript: The usage of `var` (if present) should be replaced with `let` or `const` for proper block-scoping and modern JS practices. This prevents common hoisting bugs.\n";
+            response += "2. Performance:If this function runs in a loop, watch for potential O(N²) complexity. Shraddha prefers O(N log N) or O(N) solutions using structures like HashMaps.\n\n";
 
             response += "#### ✨ Suggested Improvements\n";
-            response += "1. **Readability:** Use **descriptive variable names** and comments for complex logic (e.g., explain the intent of a regex or complex calculation).\n";
-            response += "2. **Asynchronous Handling:** Ensure all `await` calls are correctly wrapped in a `try...catch` block for resilient error handling in production environments.\n";
-            response += "3. **Type Safety:** Consider migrating to **TypeScript** to catch these errors at compile-time, a practice Shraddha uses in her Next.js projects.\n\n";
+            response += "1. Readability: Use descriptive variable names and comments for complex logic (e.g., explain the intent of a regex or complex calculation).\n";
+            response += "2. Asynchronous Handling: Ensure all `await` calls are correctly wrapped in a `try...catch` block for resilient error handling in production environments.\n";
+            response += "3. Type Safety: Consider migrating to TypeScript to catch these errors at compile-time, a practice Shraddha uses in her Next.js projects.\n\n";
             
             response += "#### 🧠 Architectural Insight\n";
-            response += "The code's current structure hints at a tightly coupled module. For better scalability, consider abstracting complex logic into a separate **Service Layer** for easier unit testing and dependency management.\n";
+            response += "The code's current structure hints at a tightly coupled module. For better scalability, consider abstracting complex logic into a separate Service Layer for easier unit testing and dependency management.\n";
         }
 
-        response += "\n*This simulated review demonstrates Shraddha's technical depth, a key reason why recruiters trust her work.* **🔥 Next step: Ask me about her 'skills'.**";
+        response += "\nThis simulated review demonstrates Shraddha's technical depth, a key reason why recruiters trust her work.🔥 Next step: Ask me about her 'skills'.";
         return response;
     },
     
@@ -436,28 +436,28 @@ const chatbotKnowledge = {
         let cause = "Uncategorized Server/Backend Exception";
         let debugSteps = "Review the full server logs for the uncaught exception stack trace. Verify the database connection pool status and check for recent schema migrations that might have failed.";
         let codeFix = `// Backend API Resilience Fix Example\ntry {\n  const data = await database.query(safeQuery);\n  res.json(data);\n} catch (error) {\n  // Log detailed error and return a generic 500\n  console.error('CRITICAL DB FAILURE:', error.message);\n  res.status(500).send('Internal Server Error: Database Down');\n}`;
-        let intelligence = "This indicates a critical failure likely within the **database or network layer**. Shraddha's expertise in **PostgreSQL** and **Node.js** allows her to identify performance bottlenecks and security vulnerabilities that often lead to these severe failures. **🔥 Next step: Ask me about her 'projects'.**";
+        let intelligence = "This indicates a critical failure likely within the database or network layer. Shraddha's expertise in PostgreSQL and **Node.js allows her to identify performance bottlenecks and security vulnerabilities that often lead to these severe failures. 🔥 Next step: Ask me about her 'projects'.";
 
         if (cleanInput.includes('referenceerror') || cleanInput.includes('is not defined') || cleanInput.includes('variable')) {
-            cause = "**Frontend ReferenceError:** An undeclared variable or a missing import/library is being used. This is an ES6 scope issue.";
-            debugSteps = "1. **Check Scope:** Ensure the variable is declared (`const`, `let`) within the functional scope.\n2. **Verify Imports:** Confirm the correct file path and name are imported and exported.";
+            cause = "Frontend ReferenceError: An undeclared variable or a missing import/library is being used. This is an ES6 scope issue.";
+            debugSteps = "1. Check Scope: Ensure the variable is declared (`const`, `let`) within the functional scope.\n2. Verify Imports: Confirm the correct file path and name are imported and exported.";
             codeFix = `// Example Fix: Fixing a missing import\nimport { fetchData } from './apiService'; // Ensure import is present\n\nfunction initialize() {\n  const data = fetchData();\n  console.log(data);\n}`;
         } else if (cleanInput.includes('typeerror') || cleanInput.includes('is not a function') || cleanInput.includes('cannot read properties of undefined')) {
-            cause = "**TypeError: Null/Undefined Object:** A method is being called on an object that is currently `null` or `undefined`. This often results from asynchronous data not being checked.";
-            debugSteps = "1. **Conditional Access:** Use **Optional Chaining** (`obj?.property`) or a conditional check (`if (obj) { ... }`) before accessing nested properties.\n2. **State Check:** In frontend frameworks, ensure the state holding the API response is initialized to a safe default (e.g., `[]` or `{}`) before rendering.";
+            cause = "TypeError: Null/Undefined Object: A method is being called on an object that is currently `null` or `undefined`. This often results from asynchronous data not being checked.";
+            debugSteps = "1. Conditional Access: Use Optional Chaining (`obj?.property`) or a conditional check (`if (obj) { ... }`) before accessing nested properties.\n2. State Check: In frontend frameworks, ensure the state holding the API response is initialized to a safe default (e.g., `[]` or `{}`) before rendering.";
             codeFix = `// Example Fix: Defensive Programming\nconst user = API_RESPONSE?.data;\n\n// Check if user exists before accessing properties\nconst name = user?.profile?.name || 'Loading...';\nconsole.log(name);`;
         } else if (cleanInput.includes('404') || cleanInput.includes('not found') || cleanInput.includes('endpoint')) {
-            cause = "**Backend API 404 Error:** The client is requesting a resource/endpoint that is not defined on the server (i.e., wrong path or missing route registration).";
-            debugSteps = "1. **Verify Route Path:** Check the Express/Django route definition to ensure the path exactly matches the client request, including case sensitivity.\n2. **Middleware Order:** Ensure the router or controller is loaded before the final error handler middleware in the server setup.";
+            cause = "Backend API 404 Error: The client is requesting a resource/endpoint that is not defined on the server (i.e., wrong path or missing route registration).";
+            debugSteps = "1. Verify Route Path: Check the Express/Django route definition to ensure the path exactly matches the client request, including case sensitivity.\n2. Middleware Order: Ensure the router or controller is loaded before the final error handler middleware in the server setup.";
             codeFix = `// Example Fix: Server-side Route Definition\n// Ensure the route path is correct:\n// app.get('/api/v1/users/list', userController.getUsers); \n\n// If using versioning, ensure it is applied consistently:\n// router.use('/v1', v1Routes);`;
         } else if (cleanInput.includes('500') || cleanInput.includes('internal server error')) {
-            cause = "**HTTP 500 Internal Server Error:** A severe, unhandled exception occurred on the backend, likely due to a database failure, network timeout, or configuration error.";
-            debugSteps = "1. **Check Backend Logs:** Immediately inspect the server console for the full exception stack trace.\n2. **Health Check:** Run a database connection check script to confirm the server can communicate with the database (e.g., PostgreSQL/MongoDB).";
+            cause = "HTTP 500 Internal Server Error: A severe, unhandled exception occurred on the backend, likely due to a database failure, network timeout, or configuration error.";
+            debugSteps = "1. Check Backend Logs: Immediately inspect the server console for the full exception stack trace.\n2. Health Check: Run a database connection check script to confirm the server can communicate with the database (e.g., PostgreSQL/MongoDB).";
             codeFix = `// Example Fix: Global Error Handler\n// In Express/Node.js, implement a global error middleware:\napp.use((err, req, res, next) => {\n  console.error(err.stack);\n  res.status(500).send('Something broke!');\n});`;
         }
 
         let response = "### 🐛 Bug Detector Analysis\n\n";
-        response += "This is a **Bug Detector Chatbot** response. It showcases Shraddha's debugging intelligence and backend reasoning abilities.\n\n";
+        response += "This is a Bug Detector Chatbot response. It showcases Shraddha's debugging intelligence and backend reasoning abilities.\n\n";
         response += "#### 🔍 Predicted Cause\n";
         response += `${cause}\n\n`;
 
@@ -471,7 +471,7 @@ const chatbotKnowledge = {
         response += "\n#### 🧠 Debugging Intelligence & Backend Reasoning\n";
         response += `${intelligence}\n\n`;
 
-        response += "*This simulated analysis demonstrates Shraddha's deep technical reasoning and expertise in fixing complex full-stack bugs.* **🔥 Next step: Ask me about her 'projects'.**";
+        response += "This simulated analysis demonstrates Shraddha's deep technical reasoning and expertise in fixing complex full-stack bugs.🔥 Next step: Ask me about her 'projects'.";
         return response;
     }
 };
