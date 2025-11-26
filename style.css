@@ -1,9 +1,9 @@
 /* Custom CSS Variables (Matching Tailwind Configuration in index.html) */
 :root {
-    --primary-dark: #0a0a2a; 
-    --card-dark: #151535;
-    --accent-indigo: #a855f7;
-    --accent-purple: #c084fc;
+    --primary-dark: #0F172A; /* Slate 900 */
+    --card-dark: #1E293B; /* Slate 800 */
+    --accent-indigo: #06B6D4; /* Cyan 500 */
+    --accent-purple: #14B8A6; /* Teal 500 */
 }
 
 /* Base Styles & Smooth Scroll */
@@ -39,7 +39,7 @@ html {
     /* Removed padding from the main card container to allow the image to sit at the top edge. */
     border-radius: 0.75rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(6, 182, 212, 0.2); /* Changed border to use new accent color */
     transition: all 0.3s;
     height: 100%;
     /* Added default padding for project-card children if not overridden with p-6 */
@@ -52,7 +52,7 @@ html {
 }
 
 .skill-category-card:hover, .project-card:hover, .education-card:hover, .education-timeline-container:hover {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.7); /* Neon glow effect on hover */
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.7); /* Neon glow effect on hover using new accent */
     transform: translateY(-4px);
 }
 
@@ -63,7 +63,7 @@ html {
     font-weight: 600; /* semibold */
     margin-bottom: 1.5rem; /* mb-6 */
     color: var(--accent-purple);
-    border-bottom: 2px solid rgba(168, 85, 247, 0.5); /* Border matching accent */
+    border-bottom: 2px solid rgba(6, 182, 212, 0.5); /* Border matching accent */
     padding-bottom: 0.5rem; /* pb-2 */
 }
 
@@ -72,11 +72,11 @@ html {
     display: flex;
     align-items: center;
     justify-content: center; /* Center content horizontally */
-    background-color: #211d44; /* Darker interior color */
-    border: 1px solid #7c3aed; /* Stronger accent border */
+    background-color: #172554; /* Darker interior color (based on Slate/Cyan) */
+    border: 1px solid #06b6d4; /* Stronger accent border (Cyan 500) */
     padding: 0.75rem 0.5rem; /* Adjust padding for better shape */
     border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(168, 85, 247, 0.3); /* Initial subtle neon glow */
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.3); /* Initial subtle neon glow */
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: default;
     flex-direction: column; /* Stack icon and name vertically */
@@ -86,7 +86,7 @@ html {
 
 .skill-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.8), 0 0 5px rgba(255, 255, 255, 0.2); /* Brighter glow */
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.8), 0 0 5px rgba(255, 255, 255, 0.2); /* Brighter glow */
 }
 
 /* The icon placeholder/container */
@@ -118,8 +118,8 @@ html {
 /* Project Skill Badge Styles (Used within Project cards - smaller, badge look) */
 .skill-badge-project {
     padding: 0.25rem 0.75rem;
-    background-color: #3730a3; 
-    color: #e5e7eb; 
+    background-color: #3730a3; /* Indigo 700 - Kept as is for dark text */
+    color: #e5e7eb; /* Gray 200 */
     font-size: 0.75rem;
     font-weight: 500;
     border-radius: 0.25rem;
@@ -141,24 +141,24 @@ html {
     border-radius: 50%;
     margin-top: 5px;
     left: -7px; /* Position dot over the line */
-    border: 3px solid var(--primary-dark);
-    z-index: 10; /* Ensure dot is on top of the line */
+    border: 2px solid var(--primary-dark); /* Match background color */
+    box-shadow: 0 0 8px var(--accent-purple);
 }
 
-.certificate-link {
-    color: var(--accent-purple);
-    transition: color 0.2s;
-    display: block; /* Ensures the hover state covers the full list item padding */
+.timeline-content-card {
+    background-color: var(--card-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem; /* Push content away from the line */
+    border-left: 4px solid var(--accent-indigo);
 }
 
+/* Certificate Link Styles */
 .certificate-link:hover {
     color: var(--accent-indigo);
-    text-decoration: underline;
 }
 
 /* --- Modal Styles --- */
-
-/* Overlay for the modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -166,48 +166,19 @@ html {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 100;
+    justify-content: center;
+    z-index: 50;
 }
 
-/* Modal Window (The actual popup box) */
 .modal-window {
     max-height: 90vh;
+    overflow-y: auto;
 }
 
-/* --- Chatbot Widget Styles (NEW) --- */
+/* --- Chatbot Styles --- */
 
-/* Container for the floating button */
-#chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-}
-
-/* The floating toggle button */
-.chatbot-toggle-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--accent-indigo);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(168, 85, 247, 0.7); /* Neon glow */
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    border: none;
-}
-
-.chatbot-toggle-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-purple);
-}
-
-/* The main chat window */
+/* The main container for the chatbot window */
 .chatbot-window {
     position: absolute;
     bottom: 80px; /* Position above the toggle button */
@@ -239,42 +210,40 @@ html {
     background-color: var(--accent-indigo);
     color: white;
     font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 1.125rem;
+    text-align: center;
 }
 
-/* Chat window body (messages) */
+/* Chat body/history area */
 .chatbot-body {
     flex-grow: 1;
     padding: 1rem;
     overflow-y: auto;
-    background-color: #101030; /* Slightly different background */
-    color: white;
-}
-
-/* Chat window footer (input) */
-.chatbot-input-area {
-    padding: 1rem;
-    border-top: 1px solid rgba(168, 85, 247, 0.3);
     background-color: var(--card-dark);
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
-/* Style for the new TEXTAREA input field */
+/* Chat input area */
+.chatbot-input-area {
+    padding: 0.75rem 1rem;
+    background-color: var(--primary-dark);
+    border-top: 1px solid var(--accent-indigo);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Chat input (textarea) */
 .chatbot-input-area textarea {
     flex-grow: 1;
-    padding: 0.5rem;
+    background-color: #172554; /* Darker input color (based on Slate/Cyan) */
+    border: 1px solid var(--accent-purple);
     border-radius: 6px;
-    border: 1px solid var(--accent-indigo);
-    background-color: var(--primary-dark);
+    padding: 0.5rem;
     color: white;
-    outline: none;
-    resize: none; /* Disable manual resizing */
-    min-height: 40px; /* Base height */
-    max-height: 120px; /* Max height for code block input */
-    line-height: 1.4;
+    resize: none;
     font-family: 'Consolas', 'Monaco', monospace;
 }
 
@@ -314,19 +283,41 @@ html {
 
 /* Style for user-submitted code in the chat history (Dark purple background, light purple text) */
 .code-block-user {
-    background-color: #211d44; /* Darker interior color */
-    padding: 0.5rem;
-    border-radius: 4px;
+    background-color: #3730a3; /* Indigo 700 - Kept as is */
+    padding: 0.75rem;
+    border-radius: 6px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     overflow-x: auto;
-    border: 1px solid rgba(192, 132, 252, 0.3);
+    border: 1px solid var(--accent-indigo);
 }
 
 .code-block-user code {
     font-family: 'Consolas', 'Monaco', monospace;
     font-size: 0.9rem;
-    color: #c084fc; /* Light purple for user code */
+    color: #14B8A6; /* Light Teal/Accent */
     white-space: pre-wrap;
     word-break: break-all;
+}
+
+/* Additional Chatbot List Styling */
+.chatbot-body ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+}
+
+.chatbot-body li {
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+}
+
+.chatbot-body h3, .chatbot-body h4 {
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-purple);
+    font-size: 1.1rem;
 }

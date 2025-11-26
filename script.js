@@ -294,42 +294,65 @@ function initializeContentModal() {
     });
 }
 
-
 // --- Contact Form Functionality ---
 function initializeContactForm() {
     const form = document.getElementById('contact-form');
     const message = document.getElementById('form-message');
+    const submitButton = document.getElementById('submit-button');
 
-    form.addEventListener('submit', function(e) {
+    // Simple client-side form simulation for portfolio demo
+    // In a real application, this would send an AJAX request to a backend/form service (e.g., Formspree, AWS Lambda, or a custom Express server)
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Simulate form submission success
-        message.textContent = "Thank you! Your message has been sent successfully. I will get back to you soon.";
-        message.className = 'mt-4 text-center text-green-400 font-semibold';
-        message.classList.remove('hidden');
-        
-        form.reset();
-        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'SENDING...';
+        submitButton.classList.add('opacity-50');
+
+        // Simulate network delay
         setTimeout(() => {
-            message.classList.add('hidden');
-        }, 5000);
+            submitButton.disabled = false;
+            submitButton.textContent = 'SEND MESSAGE';
+            submitButton.classList.remove('opacity-50');
+
+            // Show success message
+            message.textContent = "Your message was sent successfully. I will get back to you soon.";
+            message.className = 'mt-4 text-center text-green-400 font-semibold';
+            message.classList.remove('hidden');
+            form.reset();
+
+            // Hide message after a few seconds
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 5000);
+        }, 2000); // 2 second delay
     });
 }
 
+
 // --- Chatbot Widget Functionality (Uses Resume Data) ---
+
+// Knowledge base for the simulated developer guide bot
 const chatbotKnowledge = {
+    // Initial/Combined Intro Message
+    combined_intro: "Hi, I’m Shraddha’s AI Developer Guide! I can help you quickly learn about her career. **Ask me about her skills, projects, experience, or education.** Try asking: 'What are her main skills?' or 'Tell me about the ReadFlow project.'",
+
     // Portfolio Guide Content
     shraddha: "Shraddha is a Full Stack Developer experienced in building production-ready web apps using React, Next.js, Node.js, Express, Django, PostgreSQL, MongoDB, Redis, and cloud tools. She has delivered 6+ real-world projects. 🔥 Next step: Ask me about her 'skills'.",
-    contact: "You can reach Shraddha at shraddhamoily392@gmail.com or call 9945185153. The contact form is at the bottom of the page. 🔥 Next step: Ask me about her 'education'.",
-    education: "Shraddha holds a Bachelor of Computer Applications (BCA) from Alva's College (2020-2023) with a CGPA of 8.05. 🔥 Next step: Ask me about her 'experience'.",
-    experience: "Shraddha completed a Python Programming Intern role at YBI Foundation (Jul 2024), where she built automation scripts and improved modular code performance by 20%. 🔥 Next step: Ask me for her 'best project'.",
-    fallback: "I'm sorry, I don't have information on that topic. Try asking about 'skills', 'projects', or ask for her 'best project' for a guided tour!",
     
-    // Guided Portfolio Responses
-    combined_intro: "Welcome to the AI Developer Guide! I offer a guided tour of Shraddha's portfolio, skills, and projects. You can ask for 'skills', 'best project', or try my Bug Detector mode by pasting an error log! *To use the Resume Analyzer, type 'analyze resume'.*",
-    skills: "Shraddha's core skills are organized for full-stack excellence: <strong>Frontend:</strong> React.js, Next.js, TailwindCSS. <strong>Backend:</strong> Node.js, Express.js, Django REST Framework, REST APIs. <strong>Databases:</strong> PostgreSQL, MongoDB, Redis. She always prioritizes the right tool for the job. 🔥 Next step: Ask me about her 'best project'.",
-    projects: "Shraddha has delivered 6+ projects. Key projects include ReadFlow (Library System - Next.js/PostgreSQL) and VoxInterview AI (AI Platform - Gemini AI). I can provide links for any project. 🔥 Next step: Ask me to 'show links' or about 'ReadFlow'.",
-    best_project: "I highly recommend checking out the ReadFlow - University Library Management System. It showcases her full-stack capabilities: Next.js frontend, PostgreSQL database with Drizzle ORM, and secure Auth.js integration. 🔥 Next step: Ask me to 'show link for ReadFlow'.",
+    contact: "You can reach Shraddha at shraddhamoily392@gmail.com or call 9945185153. The contact form is at the bottom of the page. 🔥 Next step: Ask me about her 'education'.",
+    
+    education: "Shraddha holds a Bachelor of Computer Applications (BCA) from Alva's College (2020-2023) with a CGPA of 8.05. 🔥 Next step: Ask me about her 'experience'.",
+    
+    experience: "Shraddha completed a Python Programming Intern role at YBI Foundation (Jul 2024), where she built automation scripts and improved modular code performance by 20%. 🔥 Next step: Ask me about her 'projects'.",
+    
+    skills: "Shraddha's key skills include **Frontend**: Next.js, React, TailwindCSS, TypeScript. **Backend**: Node.js/Express.js, Django REST. **Databases**: PostgreSQL, MongoDB, Redis. **Cloud**: AWS (EC2, S3), Firebase, Docker (Basic). 🔥 Next step: Ask me to perform a 'code review'.",
+    
+    projects: "Shraddha has delivered 6+ projects. Key projects include **ReadFlow** (Library System with Next.js/PostgreSQL), **VoxInterview AI** (AI Voice Interviewer with Gemini AI), and **ShopSphere** (E-Commerce microservices). 🔥 Next step: Ask me 'show link for ReadFlow'.",
+    
+    fallback: "I'm sorry, I don't have that specific information. Try asking about Shraddha's 'skills', 'projects', 'experience', or ask me to do a 'code review' or 'analyze resume'.",
+
     resume_analyzer_prompt: "Welcome to the Resume Analyzer Chatbot! Please paste the complete text content of your resume/CV into the input area below and hit send. I will provide a professional, multi-point analysis on missing skills, ATS readiness, and grammatical suggestions.",
 
     // Helper functions for links and project details
@@ -348,30 +371,34 @@ const chatbotKnowledge = {
         if (data) {
             // Extract features from HTML content for a text response
             const featureMatch = data.content.match(/<ul.*?>(.*?)<\/ul>/s);
-            const features = featureMatch ? featureMatch[1].replace(/<\/?li>/g, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').split('•').filter(f => f.trim()).map(f => f.trim()).join('; ') : 'Details available in the Projects section.';
-            
-            return `**Project: ${data.title}**\n\n**Key Stack:** ${data.title.includes('Library') ? 'Next.js, Auth.js, PostgreSQL/Drizzle' : data.title.includes('AI Voice') ? 'Gemini AI, VY Voice SDK, Firebase' : 'Node.js, MongoDB, Microservices'}\n\n**Key Features:** ${features} **🔥 Next step: Ask me for the 'link for ${data.title.split(' - ')[0]}' or the 'best project'.**`;
+            const features = featureMatch ? featureMatch[1].replace(/<\/?li>/g, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').split('•').filter(f => f.trim()).map(f => f.trim()) : ["Details unavailable for text output."];
+
+            let response = `**Project Details: ${data.title}**\n\n`;
+            response += `${data.content.match(/<p.*?>(.*?)<\/p>/s)[1].replace(/<\/?p>/g, '')}\n\n`;
+            response += "**Key Features:**\n";
+            features.forEach(f => {
+                response += `* ${f}\n`;
+            });
+            response += `\n**GitHub Link**: [View Project](${data.link}). 🔥 Next step: Ask me about her 'skills'.`;
+            return response;
         }
-        return `I couldn't find details for a project named "${projectName}". Try asking about 'ReadFlow' or 'ShopSphere'.`;
+        return "I couldn't find details for that project. Try asking for 'ReadFlow' or 'ShopSphere'.";
     },
 
-    // --- Resume Analyzer Logic (NEW FEATURE) ---
+    // --- Simulated Analysis Functions ---
+
+    // Simulated Resume Analyzer
     analyzeResumeContent: (content) => {
-        const wordCount = content.split(/\s+/).length;
-        const lineCount = content.split('\n').filter(line => line.trim().length > 0).length;
         const cleanContent = content.toLowerCase();
+        let response = "### 🤖 Simulated Resume Analysis (Shraddha's Guide)\n\n";
+        response += "This analysis demonstrates Shraddha's understanding of **ATS (Applicant Tracking Systems)** and recruiter best practices.\n\n";
+        
+        // 1. ATS & Format Check
+        response += "#### 📄 ATS & Format Check\n";
+        const lineCount = content.split('\n').filter(line => line.trim() !== '').length;
 
-        let response = "### 📄 Resume Analyzer Report (Simulated)\n\n";
-        response += "This report showcases Shraddha's ability to use AI for professional document analysis, a skill valuable in data processing and HR tech.\n\n";
-
-        response += "#### 📊 ATS Readiness Check\n";
-        if (wordCount < 100 || wordCount > 800) {
-            response += "❌ **Word Count:** Too long or too short. Ideal professional length is 250-500 words. Suggestion: Be more concise in descriptions.\n";
-        } else {
-            response += "✅ Word Count: Optimal length detected (approx. " + wordCount + " words). This helps with ATS processing.\n";
-        }
-        if (!cleanContent.includes('react') && !cleanContent.includes('python')) {
-            response += "⚠️*Keyword Density: Missing high-value keywords like 'React', 'Python', or 'Cloud'. Suggestion: Ensure the job description keywords are present.\n";
+        if (lineCount < 30 || lineCount > 80) {
+            response += "⚠️ Format Warning: Content length is unusual (Lines: " + lineCount + "). Ensure key **Action Verbs** and **keywords** are present.\n";
         } else {
             response += "✅ Format: Good use of clear section headers and bullet points (detected " + lineCount + " lines). Highly ATS-friendly.\n";
         }
@@ -382,95 +409,116 @@ const chatbotKnowledge = {
         } else {
             response += "1. Soft Skills: Recommend integrating more action-oriented soft skills (e.g., 'Mentored Junior Developers' or 'Improved Team Velocity').\n";
         }
-        if (!cleanContent.includes('testing') || !cleanContent.includes('jest') || !cleanContent.includes('unit')) {
-             response += "2. Testing: Missing specific mention of testing frameworks like Jest, Mocha, or Cypress. Suggestion:Quantify experience with Unit/Integration testing.\n";
-        } else {
-             response += "2. Technical Depth: Good mention of technical terms. Focus on quantifying results (e.g., 'Reduced latency by 15%').\n";
-        }
         
+        if (!cleanContent.includes('testing') || !cleanContent.includes('jest') || !cleanContent.includes('unit')) {
+            response += "2. Testing: Missing specific mention of testing frameworks like Jest, Mocha, or Cypress. Suggestion:Quantify experience with Unit/Integration testing.\n";
+        } else {
+            response += "2. Technical Depth: Good mention of technical terms. Focus on quantifying results (e.g., 'Reduced latency by 15%').\n";
+        }
 
         response += "\n#### 📝 Grammatical & Style Tips\n";
         if (content.match(/responsible for/i)) {
-            response += "⚠️ Passive Voice: Avoid phrases like 'Responsible for X'. Suggestion: Start every bullet point with a strong Action Verb (e.g., 'Developed', 'Engineered', 'Optimized').\n";
+            response += "⚠️ Passive Voice: Avoid phrases like 'Responsible for X'. Suggestion: Start every bullet point with a strong Action Verb (e.g., 'Developed', 'Optimized', 'Architected').\n";
         } else {
-            response += "✅ Action Verbs:Strong use of active voice detected, which increases impact.\n";
+            response += "✅ Action Verbs: Excellent use of strong action verbs (found: 'developed', 'integrated', 'built').\n";
         }
-        response += "2. Consistency: Ensure dates and titles are consistently formatted throughout the document.\n";
         
-        response += "\nThis detailed analysis demonstrates professional diligence and understanding of recruitment best practices.🔥 Next step: Ask me about her 'skills'.";
+        response += "\nThis simulated analysis demonstrates Shraddha's deep knowledge of the hiring process. 🔥 Next step: Try asking me for a 'code review'.";
         return response;
     },
 
-    // --- Bug Detector Logic (from Step 2) ---
-    generateSimulatedCodeReview: (code) => {
-        const lines = code.split('\n').filter(line => line.trim().length > 0);
-        
-        let response = "### 🤖 Code Review Summary\n\n";
-        response += "This is a Code Reviewer Guide response. It showcases Shraddha's ability to analyze and improve code architecture.\n\n";
+    // Simulated Code Reviewer
+    generateSimulatedCodeReviewResponse: (code) => {
+        const cleanInput = code.toLowerCase();
+        let response = "### 💻 Simulated Code Review (Shraddha's Code Guide)\n\n";
+        response += "This code review is designed to demonstrate Shraddha's ability to provide constructive feedback, enforce best practices, and improve code quality.\n\n";
 
-        if (lines.length < 5) {
-            response += "⚠️ Submission Too Short: The submitted code fragment is very short. While the structure looks fine, a more substantial block is needed for deep analysis.\n\n";
+        // Check for common JS issues
+        if (cleanInput.includes('var ') || cleanInput.includes('==') || cleanInput.includes('array.length')) {
+            response += "#### ⚠️ Critical Issues Found\n";
+            if (cleanInput.includes('var ')) {
+                response += "1. `var` usage: The `var` keyword should be replaced with `let` or `const` for proper block-scoping and modern JS practices. This prevents common hoisting bugs.\n";
+            }
+            if (cleanInput.includes('==')) {
+                response += "2. Comparison: Favor the strict equality operator (`===`) over the abstract equality operator (`==`) to avoid unexpected type coercion issues.\n";
+            }
+            if (cleanInput.includes('array.length')) {
+                response += "3. Array Size Check: `if (Array.length)` can lead to bugs. Use `if (Array && Array.length > 0)` for defensive programming.\n";
+            }
+            response += "\n";
         } else {
-            response += "✅ General Impression: The code is readable and follows basic conventions. However, the AI has identified several areas for potential improvement to enhance performance and maintainability.\n\n";
-            
-            response += "#### 🚨 Detected Issues (Simulated)\n";
-            response += `<pre class="code-block"><code>${code}</code></pre>`;
-            response += "1. Modern JavaScript: The usage of `var` (if present) should be replaced with `let` or `const` for proper block-scoping and modern JS practices. This prevents common hoisting bugs.\n";
-            response += "2. Performance:If this function runs in a loop, watch for potential O(N²) complexity. Shraddha prefers O(N log N) or O(N) solutions using structures like HashMaps.\n\n";
-
-            response += "#### ✨ Suggested Improvements\n";
-            response += "1. Readability: Use descriptive variable names and comments for complex logic (e.g., explain the intent of a regex or complex calculation).\n";
-            response += "2. Asynchronous Handling: Ensure all `await` calls are correctly wrapped in a `try...catch` block for resilient error handling in production environments.\n";
-            response += "3. Type Safety: Consider migrating to TypeScript to catch these errors at compile-time, a practice Shraddha uses in her Next.js projects.\n\n";
-            
-            response += "#### 🧠 Architectural Insight\n";
-            response += "The code's current structure hints at a tightly coupled module. For better scalability, consider abstracting complex logic into a separate Service Layer for easier unit testing and dependency management.\n";
+            response += "#### ✅ Initial Scan Results: Clean Code Metrics\n";
+            response += "The code appears to follow modern conventions (no 'var', uses triple equals). No critical security flaws detected in the snippet.\n\n";
         }
 
+        // Add general suggestions
+        response += "#### 🚀 Best Practice & Scalability Suggestions\n";
+        if (cleanInput.includes('for ')) {
+            response += "1. Iteration: For array iteration, prefer modern methods like `map()`, `filter()`, or `reduce()`, which are more declarative and less prone to off-by-one errors than a traditional `for` loop.\n";
+        } else {
+             response += "1. Block Scoping: Ensure no global variables leak. All variables should be contained within a function or block scope.\n";
+        }
+        
+        response += "2. Performance:If this function runs in a loop, watch for potential O(N²) complexity. Shraddha prefers O(N log N) or O(N) solutions using structures like HashMaps.\n\n";
+
+        response += "#### ✨ Suggested Improvements\n";
+        response += "1. Readability: Use descriptive variable names and comments for complex logic (e.g., explain the intent of a regex or complex calculation).\n";
+        response += "2. Asynchronous Handling: Ensure all `await` calls are correctly wrapped in a `try...catch` block for resilient error handling in production environments.\n";
+        response += "3. Type Safety: Consider migrating to TypeScript to catch these errors at compile-time, a practice Shraddha uses in her Next.js projects.\n\n";
+
+        response += "#### 🧠 Architectural Insight\n";
+        response += "The code's current structure hints at a tightly coupled module. For better scalability, consider abstracting complex logic into a separate Service Layer for easier unit testing and dependency management.\n";
+        
         response += "\nThis simulated review demonstrates Shraddha's technical depth, a key reason why recruiters trust her work.🔥 Next step: Ask me about her 'skills'.";
         return response;
     },
     
+    // Simulated Bug Detector
     generateSimulatedBugDetectorResponse: (input) => {
         const cleanInput = input.toLowerCase();
-        let cause = "Uncategorized Server/Backend Exception";
-        let debugSteps = "Review the full server logs for the uncaught exception stack trace. Verify the database connection pool status and check for recent schema migrations that might have failed.";
-        let codeFix = `// Backend API Resilience Fix Example\ntry {\n  const data = await database.query(safeQuery);\n  res.json(data);\n} catch (error) {\n  // Log detailed error and return a generic 500\n  console.error('CRITICAL DB FAILURE:', error.message);\n  res.status(500).send('Internal Server Error: Database Down');\n}`;
-        let intelligence = "This indicates a critical failure likely within the database or network layer. Shraddha's expertise in PostgreSQL and **Node.js allows her to identify performance bottlenecks and security vulnerabilities that often lead to these severe failures. 🔥 Next step: Ask me about her 'projects'.";
+        let cause = "Uncategorized Error: This requires manual inspection. Check the browser console for stack trace.";
+        let debugSteps = "1. Isolate: Comment out the suspected block of code and re-run to confirm the location.\n2. Console Log: Use aggressive `console.log()` statements to trace variable values right before the crash.";
+        let intelligence = "The error description is vague, suggesting an issue that's not caught by basic validation. A full-stack developer knows to start with isolation and aggressive logging.";
+        let codeFix = `// No specific fix for uncategorized errors.`;
 
-        if (cleanInput.includes('referenceerror') || cleanInput.includes('is not defined') || cleanInput.includes('variable')) {
-            cause = "Frontend ReferenceError: An undeclared variable or a missing import/library is being used. This is an ES6 scope issue.";
-            debugSteps = "1. Check Scope: Ensure the variable is declared (`const`, `let`) within the functional scope.\n2. Verify Imports: Confirm the correct file path and name are imported and exported.";
-            codeFix = `// Example Fix: Fixing a missing import\nimport { fetchData } from './apiService'; // Ensure import is present\n\nfunction initialize() {\n  const data = fetchData();\n  console.log(data);\n}`;
+        if (cleanInput.includes('referenceerror') || cleanInput.includes('is not defined') || cleanInput.includes('import')) {
+            cause = "ReferenceError: Missing Import/Scope Issue: A variable or function is being used before it is declared, or the correct file path and name are imported and exported.";
+            debugSteps = "1. Scope Check: Confirm the variable/function is accessible in the current scope (e.g., passed as a prop, not hidden inside a closure).\n2. Import Path: Verify the correct file path and name are imported and exported.";
+            codeFix = `// Example Fix: Fixing a missing import\nimport { fetchData } from './apiService'; // Ensure import is present\n\nfunction initialize() {\n const data = fetchData();\n console.log(data);\n}`;
+            intelligence = "A ReferenceError indicates an issue with the code's loading order or file structure. Shraddha's approach is to check the import/export chain first, a common issue in large projects.";
         } else if (cleanInput.includes('typeerror') || cleanInput.includes('is not a function') || cleanInput.includes('cannot read properties of undefined')) {
             cause = "TypeError: Null/Undefined Object: A method is being called on an object that is currently `null` or `undefined`. This often results from asynchronous data not being checked.";
             debugSteps = "1. Conditional Access: Use Optional Chaining (`obj?.property`) or a conditional check (`if (obj) { ... }`) before accessing nested properties.\n2. State Check: In frontend frameworks, ensure the state holding the API response is initialized to a safe default (e.g., `[]` or `{}`) before rendering.";
             codeFix = `// Example Fix: Defensive Programming\nconst user = API_RESPONSE?.data;\n\n// Check if user exists before accessing properties\nconst name = user?.profile?.name || 'Loading...';\nconsole.log(name);`;
+            intelligence = "This is the most common bug from API calls. Shraddha immediately checks for defensive programming practices like optional chaining and safe state initialization.";
         } else if (cleanInput.includes('404') || cleanInput.includes('not found') || cleanInput.includes('endpoint')) {
             cause = "Backend API 404 Error: The client is requesting a resource/endpoint that is not defined on the server (i.e., wrong path or missing route registration).";
             debugSteps = "1. Verify Route Path: Check the Express/Django route definition to ensure the path exactly matches the client request, including case sensitivity.\n2. Middleware Order: Ensure the router or controller is loaded before the final error handler middleware in the server setup.";
-            codeFix = `// Example Fix: Server-side Route Definition\n// Ensure the route path is correct:\n// app.get('/api/v1/users/list', userController.getUsers); \n\n// If using versioning, ensure it is applied consistently:\n// router.use('/v1', v1Routes);`;
-        } else if (cleanInput.includes('500') || cleanInput.includes('internal server error')) {
-            cause = "HTTP 500 Internal Server Error: A severe, unhandled exception occurred on the backend, likely due to a database failure, network timeout, or configuration error.";
-            debugSteps = "1. Check Backend Logs: Immediately inspect the server console for the full exception stack trace.\n2. Health Check: Run a database connection check script to confirm the server can communicate with the database (e.g., PostgreSQL/MongoDB).";
-            codeFix = `// Example Fix: Global Error Handler\n// In Express/Node.js, implement a global error middleware:\napp.use((err, req, res, next) => {\n  console.error(err.stack);\n  res.status(500).send('Something broke!');\n});`;
+            codeFix = `// Example Fix: Correcting a route definition in Express\n// BAD: app.get('/userprofile')\n// GOOD:\napp.get('/api/users/:id', (req, res) => {\n  // Handle logic\n});`;
+            intelligence = "A 404 requires inspecting the server-side code (Node.js/Django). Shraddha knows the path, case sensitivity, and middleware order are the top three culprits.";
+        } else if (cleanInput.includes('500') || cleanInput.includes('internal server error') || cleanInput.includes('database connection fail')) {
+            cause = "Backend 500 Error: Database/Service Failure: The server is crashing, often due to an unhandled exception in database queries (e.g., connection timed out, invalid SQL syntax, or external service failure).";
+            debugSteps = "1. Check Logs: Check the server/cloud logs (AWS CloudWatch, Vercel logs) for the full stack trace which names the file and line number.\n2. Try/Catch: Wrap the database interaction layer in a `try...catch` block to handle and log the specific database error gracefully.";
+            codeFix = `// Example Fix: Using a try/catch for DB operations\nasync function getData() {\n  try {\n    const data = await db.query('SELECT * FROM users');\n    return data;\n  } catch (error) {\n    console.error('DB ERROR:', error.message);\n    // Return safe default or re-throw specific error\n    throw new Error('Failed to fetch data');\n  }\n}`;
+            intelligence = "A 500 points to a server-side crash. Shraddha's immediate response is log inspection and implementing robust try/catch blocks for I/O operations, a sign of production-level backend thinking.";
         }
 
-        let response = "### 🐛 Bug Detector Analysis\n\n";
-        response += "This is a Bug Detector Chatbot response. It showcases Shraddha's debugging intelligence and backend reasoning abilities.\n\n";
+        let response = "### 🐛 Simulated Bug Detector Analysis (Full Stack Debugging)\n\n";
+        response += "This is a simulated Bug Detector Chatbot response. It showcases Shraddha's debugging intelligence and backend reasoning abilities.\n\n";
+        
         response += "#### 🔍 Predicted Cause\n";
         response += `${cause}\n\n`;
 
         response += "#### 🛠️ Suggested Debugging Steps\n";
         response += `${debugSteps}\n\n`;
-
+        
         response += "#### 💡 Code Fix / Best Practice\n";
         response += "Applying the fix involves using a defensive coding pattern, which is a key clean code practice:\n";
         response += `<pre class="code-block"><code>${codeFix}</code></pre>`;
 
         response += "\n#### 🧠 Debugging Intelligence & Backend Reasoning\n";
         response += `${intelligence}\n\n`;
-
+        
         response += "This simulated analysis demonstrates Shraddha's deep technical reasoning and expertise in fixing complex full-stack bugs.🔥 Next step: Ask me about her 'projects'.";
         return response;
     }
@@ -483,53 +531,39 @@ function getBotResponse(userMessage) {
     if (cleanMessage.includes('analyze resume') || cleanMessage.includes('review my resume')) {
         return chatbotKnowledge.resume_analyzer_prompt;
     }
-
+    
     // Check if the input is a long block of text (likely pasted resume text)
     if (cleanMessage.length > 500 && !cleanMessage.includes('error') && !cleanMessage.includes('function') && !cleanMessage.includes('code review')) {
-         // Long text that doesn't look like code or an error is treated as a resume
-         if (cleanMessage.includes('education') || cleanMessage.includes('experience') || cleanMessage.includes('skills')) {
+        // Long text that doesn't look like code or an error is treated as a resume
+        if (cleanMessage.includes('education') || cleanMessage.includes('experience') || cleanMessage.includes('skills')) {
             return chatbotKnowledge.analyzeResumeContent(userMessage);
-         }
+        }
     }
-
 
     // --- 2. BUG DETECTOR MODE CHECK ---
-    const isBug = cleanMessage.includes('error') || cleanMessage.includes('fail') || cleanMessage.includes('undefined') || cleanMessage.includes('referenceerror') || cleanMessage.includes('typeerror') || cleanMessage.includes('404') || cleanMessage.includes('500') || cleanMessage.includes('exception') || (cleanMessage.includes('debug') && cleanMessage.length < 50) || (cleanMessage.includes('bug') && cleanMessage.length < 50) || (cleanMessage.includes('fix') && cleanMessage.length < 50);
-    
+    const isBug = cleanMessage.includes('error') || cleanMessage.includes('fail') || cleanMessage.includes('undefined') || cleanMessage.includes('referenceerror') || cleanMessage.includes('typeerror') || cleanMessage.includes('404') || cleanMessage.includes('500');
     if (isBug) {
-        return chatbotKnowledge.generateSimulatedBugDetectorResponse(userMessage);
+        return chatbotKnowledge.generateSimulatedBugDetectorResponse(cleanMessage);
     }
     
-    // --- 3. CODE REVIEWER MODE CHECK ---
-    // A message that is long, but not classified as a resume or an error
-    const isCode = userMessage.length > 50 || cleanMessage.includes('{') || cleanMessage.includes('(') || cleanMessage.includes('function') || cleanMessage.includes('const') || cleanMessage.includes('def') || cleanMessage.includes('import');
-
-    if (isCode) {
-        return chatbotKnowledge.generateSimulatedCodeReview(userMessage);
-    }
-    
-    // --- 4. PORTFOLIO GUIDE MODE ---
-    if (cleanMessage.includes('hi') || cleanMessage.includes('hello') || cleanMessage.includes('hey')) {
-        return chatbotKnowledge.combined_intro;
-    }
-    if (cleanMessage.includes('best project') || cleanMessage.includes('start tour') || cleanMessage.includes('recommend')) {
-        return chatbotKnowledge.best_project;
-    }
-    if (cleanMessage.includes('show link') || cleanMessage.includes('github') || cleanMessage.includes('repository')) {
-        const match = userMessage.match(/(readflow|voxinterview|shopsphere|iamsafe|finsight|medilink)/i);
-        if (match) {
-            return chatbotKnowledge.show_links(match[0]);
-        }
-        return chatbotKnowledge.show_links('');
-    }
-    
-    // Check for specific project details
-    const projectMatch = cleanMessage.match(/(readflow|voxinterview|shopsphere|iamsafe|finsight|medilink)/i);
-    if (projectMatch && !cleanMessage.includes('link')) {
-        return chatbotKnowledge.project_details(projectMatch[0]);
+    // --- 3. CODE REVIEW MODE CHECK ---
+    if (cleanMessage.includes('code review') && cleanMessage.length > 50) {
+        return chatbotKnowledge.generateSimulatedCodeReviewResponse(userMessage);
     }
 
-    if (cleanMessage.includes('shraddha') || cleanMessage.includes('who are you')) {
+    // --- 4. PROJECT/LINK/DETAIL CHECK ---
+    if (cleanMessage.includes('show link') || cleanMessage.includes('github link') || cleanMessage.includes('repo for')) {
+        const match = cleanMessage.match(/(readflow|voxinterview|shopsphere|iamsafe|finsight|medilink)/);
+        return match ? chatbotKnowledge.show_links(match[0]) : "Please specify a project name (e.g., 'ReadFlow') to get the link.";
+    }
+    
+    if (cleanMessage.includes('tell me about') || cleanMessage.includes('details of') || cleanMessage.includes('features of')) {
+        const match = cleanMessage.match(/(readflow|voxinterview|shopsphere|iamsafe|finsight|medilink)/);
+        return match ? chatbotKnowledge.project_details(match[0]) : "Please specify a project name (e.g., 'ReadFlow') to get the details.";
+    }
+
+    // --- 5. KEYWORD CHECKS (General Info) ---
+    if (cleanMessage.includes('who is shraddha') || cleanMessage.includes('about you') || cleanMessage.includes('start')) {
         return chatbotKnowledge.shraddha;
     }
     if (cleanMessage.includes('skills') || cleanMessage.includes('technologies') || cleanMessage.includes('stack')) {
@@ -554,6 +588,8 @@ function getBotResponse(userMessage) {
     return chatbotKnowledge.fallback;
 }
 
+
+// --- Main Chatbot UI & Logic ---
 function initializeChatbot() {
     const container = document.getElementById('chatbot-container');
     
@@ -567,73 +603,64 @@ function initializeChatbot() {
                 <p class="text-gray-400 mb-3">${chatbotKnowledge.combined_intro.replace(/\*\*/g, '<strong>')}</p>
             </div>
             <div class="chatbot-input-area">
-                <textarea id="chatbot-input" placeholder="Paste code, error logs, portfolio question, or type 'analyze resume'..."></textarea>
-                <button id="chatbot-send-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
+                <textarea id="chatbot-input" placeholder="Ask a question, paste code, or a resume snippet..." rows="2" class="chatbot-input"></textarea>
+                <button id="chatbot-send">Send</button>
             </div>
         </div>
-        <button id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-            <svg id="chatbot-open-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 4v-4z"></path>
-            </svg>
-            <svg id="chatbot-close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
     `;
 
-    const toggleButton = document.getElementById('chatbot-toggle-btn');
+    const toggleButton = document.getElementById('chatbot-toggle');
     const chatWindow = document.getElementById('chatbot-window');
-    const openIcon = document.getElementById('chatbot-open-icon');
-    const closeIcon = document.getElementById('chatbot-close-icon');
     const inputField = document.getElementById('chatbot-input');
-    const sendButton = document.getElementById('chatbot-send-btn');
+    const sendButton = document.getElementById('chatbot-send');
     const chatBody = document.getElementById('chatbot-body');
 
-    // Toggle Chat Window
-    toggleButton.addEventListener('click', () => {
-        const isOpen = chatWindow.classList.toggle('open');
-        openIcon.classList.toggle('hidden', isOpen);
-        closeIcon.classList.toggle('hidden', !isOpen);
-        if (isOpen) {
-            chatBody.scrollTop = chatBody.scrollHeight;
-            inputField.focus(); // Focus input when opened
+    const toggleChatbot = () => {
+        chatWindow.classList.toggle('open');
+        // Focus input when opening
+        if (chatWindow.classList.contains('open')) {
+            setTimeout(() => inputField.focus(), 300);
         }
-    });
+    };
+    
+    toggleButton.addEventListener('click', toggleChatbot);
+
 
     const processUserMessage = (message) => {
-        const userMessage = document.createElement('p');
+        // User Message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'text-right text-white mb-2 p-2 rounded-lg bg-accent-indigo max-w-[90%] ml-auto';
         
-        // Determine if the input should be displayed as a code/text block or simple text
-        const cleanMessage = message.toLowerCase().trim();
-        const isCodeOrLogOrResume = message.length > 50 || cleanMessage.includes('{') || cleanMessage.includes('function') || cleanMessage.includes('error') || cleanMessage.includes('skills') || cleanMessage.includes('experience');
-        
-        userMessage.className = 'text-right text-accent-purple mb-2 p-2 rounded-lg bg-indigo-900/50 max-w-[90%] ml-auto overflow-x-auto';
-        
-        if (isCodeOrLogOrResume) {
-             // For long text (code, log, or resume), display it inside a <pre> tag
-             userMessage.innerHTML = `You submitted: <pre class="code-block-user"><code>${message}</code></pre>`;
+        // Check if message is a large block of text (likely code or a resume)
+        if (message.length > 100 || message.includes('\n')) {
+             userMessage.innerHTML = 'You: <pre class="code-block-user"><code>' + message + '</code></pre>';
         } else {
-             userMessage.innerHTML = 'You: ' + message;
+            userMessage.textContent = 'You: ' + message;
         }
         
         chatBody.appendChild(userMessage);
-        
+
         // Bot Response
         const botText = getBotResponse(message);
-
+        
         setTimeout(() => {
-            const botMessage = document.createElement('div'); // Use div for complex HTML output
+            const botMessage = document.createElement('div');
+            // Use div for complex HTML output
             botMessage.className = 'text-left text-gray-300 mb-2 p-2 rounded-lg bg-card-dark max-w-[90%] mr-auto overflow-x-auto';
-            // Simple markdown to HTML conversion for headers, bold text, and code blocks
+            
+            // Simple markdown to HTML conversion for bot response
             const formattedBotText = botText
-                .replace(/###\s*(.*)/g, '<h4 class="text-xl font-bold text-accent-purple mt-4">$1</h4>')
-                .replace(/####\s*(.*)/g, '<h5 class="text-lg font-semibold text-accent-purple mt-3">$1</h5>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n\n/g, '<br><br>') // Convert double newlines to breaks for readability
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
+                .replace(/### (.*)/g, '<h3>$1</h3>') // Headers
+                .replace(/#### (.*)/g, '<h4>$1</h4>') // Sub-headers
+                .replace(/\[View on GitHub\]\((.*?)\)/g, '<a href="$1" target="_blank" class="text-accent-purple hover:text-accent-indigo underline">View on GitHub</a>') // Links
+                .replace(/\* (.*)/g, '<li>$1</li>') // List items
+                .replace(/(\n\s*<li>.*<\/li>)/gs, (match) => {
+                    // Wrap block of list items in ul
+                    return '<ul>' + match + '</ul>';
+                })
                 .replace(/\n/g, '<br>') // Convert single newlines to breaks
-                .replace(/<pre class="code-block"><code>(.*?)<\/code><\/pre>/gs, (match, p1) => {
+                .replace(/<pre class=\"code-block\"><code>(.*?)<\/code><\/pre>/gs, (match, p1) => {
                     // Re-format simulated code blocks, ensuring HTML is not double-escaped
                     // Remove <br> tags accidentally introduced inside the pre tag content
                     const codeContent = p1.replace(/<br>/g, '\n').replace(/<br\/>/g, '\n').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -645,7 +672,7 @@ function initializeChatbot() {
             chatBody.appendChild(botMessage);
             
             chatBody.scrollTop = chatBody.scrollHeight;
-        }, 1000);
+        }, 1000); // Simulate AI processing time
         
         chatBody.scrollTop = chatBody.scrollHeight;
         inputField.value = '';
@@ -664,7 +691,7 @@ function initializeChatbot() {
     // Enter key listener on input field (Shift+Enter for new line, Enter to submit)
     inputField.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault(); 
+            e.preventDefault();
             handleSend();
         }
     });
