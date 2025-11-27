@@ -9,6 +9,8 @@
 /* Base Styles & Smooth Scroll */
 html {
     scroll-behavior: smooth;
+    /* FIX: Add padding to the top when scrolling to an anchor link (#about, #skills, etc.) */
+    scroll-padding-top: 5rem; 
 }
 
 /* Section Title Style (The centered title bar look) */
@@ -67,21 +69,16 @@ html {
     padding-bottom: 0.5rem; /* pb-2 */
 }
 
-/* The individual skill badge/item container (Matches the look of the badges in the image) */
+/* UPDATED Skill Item Styling based on Image 2 */
 .skill-item {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center content horizontally */
-    background-color: #172554; /* Darker interior color (based on Slate/Cyan) */
-    border: 1px solid #06b6d4; /* Stronger accent border (Cyan 500) */
-    padding: 0.75rem 0.5rem; /* Adjust padding for better shape */
+    background-color: var(--primary-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(6, 182, 212, 0.3); /* Initial subtle neon glow */
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: default;
-    flex-direction: column; /* Stack icon and name vertically */
-    height: 100px; /* Fixed height for uniformity in the grid */
-    text-align: center;
+    padding: 0.75rem 1rem; /* Adjusted padding for horizontal layout */
+    transition: all 0.2s;
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    gap: 0.75rem; /* Space between icon and text */
 }
 
 .skill-item:hover {
@@ -89,19 +86,18 @@ html {
     box-shadow: 0 0 15px rgba(6, 182, 212, 0.8), 0 0 5px rgba(255, 255, 255, 0.2); /* Brighter glow */
 }
 
-/* The icon placeholder/container */
+/* UPDATED Skill Icon Styling based on Image 2 */
 .skill-icon {
     --icon-color: #ffffff; /* Default fallback */
-    width: 32px;
-    height: 32px;
-    margin-bottom: 0.5rem; /* Space between icon and name */
+    width: 24px; /* Smaller icon size */
+    height: 24px; /* Smaller icon size */
+    margin-bottom: 0; /* Remove bottom margin as text is beside it */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
-
-/* 💥 NEW CSS RULE: Ensures the logo image fits properly 💥 */
+/* Ensures the logo image fits properly */
 .skill-icon img {
     width: 100%;
     height: 100%;
@@ -109,215 +105,86 @@ html {
 }
 
 .skill-name {
-    font-size: 0.85rem; /* Slightly smaller text */
+    font-size: 0.95rem; /* Slightly larger text for readability */
     font-weight: 500;
     color: white;
     line-height: 1.2;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-/* Project Skill Badge Styles (Used within Project cards - smaller, badge look) */
+/* --- Project Card Specific Styles --- */
+
 .skill-badge-project {
-    padding: 0.25rem 0.75rem;
-    background-color: #3730a3; /* Indigo 700 - Kept as is for dark text */
-    color: #e5e7eb; /* Gray 200 */
-    font-size: 0.75rem;
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem; /* text-xs */
     font-weight: 500;
-    border-radius: 0.25rem;
-    transition: all 0.2s;
+    line-height: 1;
+    color: var(--accent-indigo);
+    background-color: rgba(6, 182, 212, 0.15); /* Light cyan background */
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 9999px; /* full rounded */
+    white-space: nowrap;
 }
 
-/* --- Timeline Styles (Experience & Education) --- */
+/* --- EDUCATION/TIMELINE Styles --- */
+
+.education-timeline-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: transparent; /* Override card-dark background */
+    border: none;
+    box-shadow: none;
+}
 
 .timeline-item {
-    margin-bottom: 2rem;
-    position: relative; /* Essential for positioning the dot */
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
 }
 
 .timeline-dot {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    left: -7px; /* Adjust based on border-left width (2px) */
+    top: 5px;
+    width: 14px;
+    height: 14px;
     background-color: var(--accent-purple);
+    border: 3px solid var(--primary-dark);
     border-radius: 50%;
-    margin-top: 5px;
-    left: -7px; /* Position dot over the line */
-    border: 2px solid var(--primary-dark); /* Match background color */
-    box-shadow: 0 0 8px var(--accent-purple);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.3);
+    transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--accent-indigo);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.5);
+    transform: scale(1.1);
 }
 
 .timeline-content-card {
     background-color: var(--card-dark);
     padding: 1rem;
     border-radius: 0.5rem;
-    margin-left: 1rem; /* Push content away from the line */
-    border-left: 4px solid var(--accent-indigo);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
-/* Certificate Link Styles */
-.certificate-link:hover {
-    color: var(--accent-indigo);
+/* Custom Scrollbar for Modal Content */
+/* This scrollbar style is for the modal (project/article case study content) */
+.custom-scrollbar-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-purple) var(--card-dark);
 }
 
-/* --- Modal Styles --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
+.custom-scrollbar-content::-webkit-scrollbar {
+    width: 8px;
 }
-
-.modal-window {
-    max-height: 90vh;
-    overflow-y: auto;
+.custom-scrollbar-content::-webkit-scrollbar-track {
+    background: var(--card-dark);
 }
-
-/* --- Chatbot Styles --- */
-
-/* The main container for the chatbot window */
-.chatbot-window {
-    position: absolute;
-    bottom: 80px; /* Position above the toggle button */
-    right: 0;
-    width: 350px;
-    height: 450px;
-    background-color: var(--primary-dark);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-    border: 2px solid var(--accent-indigo);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transform: scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.chatbot-window.open {
-    transform: scale(1);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Chat window header */
-.chatbot-header {
-    padding: 1rem;
-    background-color: var(--accent-indigo);
-    color: white;
-    font-weight: 600;
-    font-size: 1.125rem;
-    text-align: center;
-}
-
-/* Chat body/history area */
-.chatbot-body {
-    flex-grow: 1;
-    padding: 1rem;
-    overflow-y: auto;
-    background-color: var(--card-dark);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-/* Chat input area */
-.chatbot-input-area {
-    padding: 0.75rem 1rem;
-    background-color: var(--primary-dark);
-    border-top: 1px solid var(--accent-indigo);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Chat input (textarea) */
-.chatbot-input-area textarea {
-    flex-grow: 1;
-    background-color: #172554; /* Darker input color (based on Slate/Cyan) */
-    border: 1px solid var(--accent-purple);
-    border-radius: 6px;
-    padding: 0.5rem;
-    color: white;
-    resize: none;
-    font-family: 'Consolas', 'Monaco', monospace;
-}
-
-.chatbot-input-area button {
+.custom-scrollbar-content::-webkit-scrollbar-thumb {
     background-color: var(--accent-purple);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-
-.chatbot-input-area button:hover {
-    background-color: var(--accent-indigo);
-}
-
-/* --- Code Block Styling --- */
-
-/* Style for displaying AI reviewed code blocks (Black background, green/neon text) */
-.code-block {
-    background-color: #000000; /* Black background for code */
-    padding: 0.75rem;
-    border-radius: 6px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    overflow-x: auto;
-    border: 1px solid var(--accent-indigo);
-}
-
-.code-block code {
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 0.9rem;
-    color: #4CAF50; /* Green/Neon color for code text */
-    white-space: pre-wrap; 
-    word-break: break-all;
-}
-
-/* Style for user-submitted code in the chat history (Dark purple background, light purple text) */
-.code-block-user {
-    background-color: #3730a3; /* Indigo 700 - Kept as is */
-    padding: 0.75rem;
-    border-radius: 6px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    overflow-x: auto;
-    border: 1px solid var(--accent-indigo);
-}
-
-.code-block-user code {
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 0.9rem;
-    color: #14B8A6; /* Light Teal/Accent */
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-/* Additional Chatbot List Styling */
-.chatbot-body ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding-left: 0;
-}
-
-.chatbot-body li {
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
-}
-
-.chatbot-body h3, .chatbot-body h4 {
-    font-weight: 700;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent-purple);
-    font-size: 1.1rem;
+    border-radius: 20px;
+    border: 2px solid var(--card-dark);
 }
