@@ -1,0 +1,190 @@
+/* Custom CSS Variables (Matching Tailwind Configuration in index.html) */
+:root {
+    --primary-dark: #0F172A; /* Slate 900 */
+    --card-dark: #1E293B; /* Slate 800 */
+    --accent-indigo: #06B6D4; /* Cyan 500 */
+    --accent-purple: #14B8A6; /* Teal 500 */
+}
+
+/* Base Styles & Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+    /* FIX: Add padding to the top when scrolling to an anchor link (#about, #skills, etc.) */
+    scroll-padding-top: 5rem; 
+}
+
+/* Section Title Style (The centered title bar look) */
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-purple);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- Card Components (Shared Styling) --- */
+
+/* Skill/Experience/Project/Education Card Styles */
+.skill-category-card, .project-card, .education-card, .education-timeline-container {
+    background-color: var(--card-dark);
+    /* Removed padding from the main card container to allow the image to sit at the top edge. */
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(6, 182, 212, 0.2); /* Changed border to use new accent color */
+    transition: all 0.3s;
+    height: 100%;
+    /* Added default padding for project-card children if not overridden with p-6 */
+    padding: 0; 
+    overflow: hidden; /* Important for rounding corners correctly with image */
+}
+/* Re-applying padding for non-project card types */
+.skill-category-card, .education-card, .education-timeline-container {
+    padding: 1.5rem;
+}
+
+.skill-category-card:hover, .project-card:hover, .education-card:hover, .education-timeline-container:hover {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.7); /* Neon glow effect on hover using new accent */
+    transform: translateY(-4px);
+}
+
+/* --- SKILLS Section Specific Styles --- */
+
+.skill-category-title {
+    font-size: 1.5rem; /* 2xl */
+    font-weight: 600; /* semibold */
+    margin-bottom: 1.5rem; /* mb-6 */
+    color: var(--accent-purple);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.5); /* Border matching accent */
+    padding-bottom: 0.5rem; /* pb-2 */
+}
+
+/* UPDATED Skill Item Styling based on Image 2 */
+.skill-item {
+    background-color: var(--primary-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem; /* Adjusted padding for horizontal layout */
+    transition: all 0.2s;
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    gap: 0.75rem; /* Space between icon and text */
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.8), 0 0 5px rgba(255, 255, 255, 0.2); /* Brighter glow */
+}
+
+/* UPDATED Skill Icon Styling based on Image 2 */
+.skill-icon {
+    --icon-color: #ffffff; /* Default fallback */
+    width: 24px; /* Smaller icon size */
+    height: 24px; /* Smaller icon size */
+    margin-bottom: 0; /* Remove bottom margin as text is beside it */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+/* Ensures the logo image fits properly */
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.skill-name {
+    font-size: 0.95rem; /* Slightly larger text for readability */
+    font-weight: 500;
+    color: white;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* --- Project Card Specific Styles --- */
+
+.skill-badge-project {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 500;
+    line-height: 1;
+    color: var(--accent-indigo);
+    background-color: rgba(6, 182, 212, 0.15); /* Light cyan background */
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 9999px; /* full rounded */
+    white-space: nowrap;
+}
+
+/* --- EDUCATION/TIMELINE Styles --- */
+
+.education-timeline-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: transparent; /* Override card-dark background */
+    border: none;
+    box-shadow: none;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -7px; /* Adjust based on border-left width (2px) */
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent-purple);
+    border: 3px solid var(--primary-dark);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.3);
+    transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--accent-indigo);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.timeline-content-card {
+    background-color: var(--card-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+/* Custom Scrollbar for Modal Content */
+/* This scrollbar style is for the modal (project/article case study content) */
+.custom-scrollbar-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-purple) var(--card-dark);
+}
+
+.custom-scrollbar-content::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-scrollbar-content::-webkit-scrollbar-track {
+    background: var(--card-dark);
+}
+.custom-scrollbar-content::-webkit-scrollbar-thumb {
+    background-color: var(--accent-purple);
+    border-radius: 20px;
+    border: 2px solid var(--card-dark);
+}
